@@ -1,0 +1,7 @@
+{
+  "name": "exd-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
