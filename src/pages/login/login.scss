@@ -1,0 +1,68 @@
+page-login {
+
+    ion-app.md [padding] .scroll-content {
+        padding: 16px;
+        background-color: royalblue;
+    }
+    .scroll-content {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        will-change: scroll-position;
+        contain: size style layout;
+        background-color: #0000003d;
+    }
+    ion-header {
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: 10;
+        display: block;
+        width: 100%;
+        background-color: #c8c7cc;
+    }
+    .centralizado{
+        width: 50%;
+        display: block;
+        margin: auto;
+    }
+    .inputs{
+        background-color: #0000ff7d;
+        width: 50%;
+        margin: auto;
+        margin-top: 5%;
+        width: 70%;
+        height: 80%;
+        border-radius: 10px;
+ 
+    }
+    .botao{
+        margin: auto;
+        margin-left: 50%;
+        margin-bottom: 2%;
+        width: auto;
+    }
+    .button-md{
+        margin-top: 2%;
+        margin-left: 40%;
+        width: auto;
+        background-color: #0000ff7d;
+    }
+    .opcoes{
+        text-align: center;
+        color: royalblue;
+    }
+    .senha{
+        margin-bottom: -10%;
+    }
+    .rebaixado{
+        margin-top: 50%;
+    }
+}
