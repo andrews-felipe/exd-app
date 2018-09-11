@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { User } from '../../providers/auth/user';
-import { AuthService } from '../../providers/auth/auth-service';
+
 import { HomePage } from '../home/home';
+import { User } from '../../models/user';
+import { SignAuthService } from '../../providers/services-sign-auth';
 
 /**
  * Generated class for the CadastroPage page.
@@ -22,7 +23,7 @@ export class CadastroPage {
   user: User = new User();
   @ViewChild('form') form: NgForm;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private authService: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private authService: SignAuthService) {
   }
 
   ionViewDidLoad() {
@@ -35,7 +36,7 @@ export class CadastroPage {
 
         let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
 
-        this.authService.createUser(this.user)
+        this.authService.singUpUser(this.user)
             .then((user: any) => {
                 user.sendEmailVerification();
 
