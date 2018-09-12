@@ -13,7 +13,6 @@ import { SignAuthService } from '../../providers/services-sign-auth';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'

@@ -12,7 +12,6 @@ import { SignAuthService } from '../../providers/services-sign-auth';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-@IonicPage()
 @Component({
   selector: 'page-cadastro',
   templateUrl: 'cadastro.html'
