@@ -11,8 +11,9 @@ import { SignAuthService } from '../providers/services-sign-auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseconfig } from '../config/firebase-config';
-import { LoginPageModule } from '../pages/login/login.module';
-import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginPage } from '../pages/login/login';
+import { CadastroPage } from '../pages/cadastro/cadastro';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,15 @@ import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
     AboutPage,
     HomePage,
     TabsPage,
-    LoginPageModule,
-    CadastroPageModule
+    LoginPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +37,8 @@ import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
     AboutPage,
     HomePage,
     TabsPage,
+    LoginPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,

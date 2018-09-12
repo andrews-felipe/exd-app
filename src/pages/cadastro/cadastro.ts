@@ -6,8 +6,6 @@ import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { User } from '../../models/user';
 import { SignAuthService } from '../../providers/services-sign-auth';
-import { AngularFireAuth } from 'angularfire2/auth';
-
 /**
  * Generated class for the CadastroPage page.
  *
@@ -61,7 +59,7 @@ export class CadastroPage {
                     toast.setMessage('A senha digitada é muito fraca.');
                 }
                 toast.present();
-            });
+        });
     }
     
   }
