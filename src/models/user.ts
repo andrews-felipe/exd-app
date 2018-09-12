@@ -1,9 +1,9 @@
 export class User
 {
     name:string;
-    cpf:number;
+    phone:number;
+    city:string;
     email:string;
-    login:string;
     password:string;
 
     constructor()

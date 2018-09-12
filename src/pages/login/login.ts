@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { CadastroPage } from '../cadastro/cadastro';
+import { NgForm } from '@angular/forms';
+import { User } from '../../models/user';
+import { SignAuthService } from '../../providers/services-sign-auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -9,33 +13,32 @@ import { HomePage } from '../home/home';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
 })
 export class LoginPage {
 
   user: User = new User();
     @ViewChild('form') form: NgForm;
 
-    constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: AuthService) {
+    constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: SignAuthService) {
 
     }
 
     createAccount() {
-        this.navCtrl.push(SignupPage);
+        this.navCtrl.push(CadastroPage);
     }
 
-    resetPassword() {
-        this.navCtrl.push(ResetpasswordPage);
-    }
+    // resetPassword() {
+    //     this.navCtrl.push(ResetpasswordPage);
+    // }
 
     signIn() {
 
         if(this.form.form.valid) {
                 
-            this.authService.signIn(this.user)
+            this.authService.authLoginValidate(this.user)
             .then(() => {
                 this.navCtrl.setRoot(HomePage);
             })
@@ -61,3 +64,5 @@ export class LoginPage {
         
     }
 }
+
+

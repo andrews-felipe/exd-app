@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
@@ -5,18 +6,15 @@ import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { User } from '../../models/user';
 import { SignAuthService } from '../../providers/services-sign-auth';
-
 /**
  * Generated class for the CadastroPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-@IonicPage()
 @Component({
   selector: 'page-cadastro',
-  templateUrl: 'cadastro.html',
+  templateUrl: 'cadastro.html'
 })
 export class CadastroPage {
 
@@ -60,7 +58,7 @@ export class CadastroPage {
                     toast.setMessage('A senha digitada é muito fraca.');
                 }
                 toast.present();
-            });
+        });
     }
     
   }
