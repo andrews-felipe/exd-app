@@ -5,6 +5,7 @@ import { CadastroPage } from '../cadastro/cadastro';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user';
 import { SignAuthService } from '../../providers/services-sign-auth';
+import { ResetpasswordPage } from '../recuperarsenha/recuperarsenha';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,7 +20,7 @@ import { SignAuthService } from '../../providers/services-sign-auth';
 })
 export class LoginPage {
 
-  user: User = new User();
+    user: User = new User();
     @ViewChild('form') form: NgForm;
 
     constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: SignAuthService) {
@@ -30,9 +31,9 @@ export class LoginPage {
         this.navCtrl.push(CadastroPage);
     }
 
-    // resetPassword() {
-    //     this.navCtrl.push(ResetpasswordPage);
-    // }
+    resetPassword() {
+         this.navCtrl.push(ResetpasswordPage);
+     }
 
     signIn() {
 

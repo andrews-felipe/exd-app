@@ -58,4 +58,11 @@ export class SignAuthService {
       return this.dataBase.list('user.uid').query.equalTo(process).toJSON()
   }
 
+  /**
+   * Method to reset the password by passing the user's email.
+   * @param email 
+   */
+  resetPassword(email: string) {
+    return this.fireAuth.auth.sendPasswordResetEmail(email);
+  }
 }
