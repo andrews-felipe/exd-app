@@ -1,10 +1,8 @@
-export class Service 
-{
+export class Service {
     title:string;
     description:string;
     imageUrl:string;
 
-    constructor()
-    {
+    constructor() {
     }
 }
