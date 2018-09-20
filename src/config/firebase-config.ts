@@ -1,5 +1,4 @@
 export const firebaseconfig = {
-    
     apiKey: "AIzaSyB1YKsAoxJe4-udGihQzn90WeQYc1f7Sgs",
     authDomain: "iv-igreja-presbiteriana-pb.firebaseapp.com",
     databaseURL: "https://iv-igreja-presbiteriana-pb.firebaseio.com",
