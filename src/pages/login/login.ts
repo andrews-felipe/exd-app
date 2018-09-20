@@ -4,7 +4,7 @@ import { HomePage } from '../home/home';
 import { CadastroPage } from '../cadastro/cadastro';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user';
-import { SignAuthService } from '../../providers/services-sign-auth';
+import { SignAuthService } from '../../providers/AuthService
 import { ResetpasswordPage } from '../recuperarsenha/recuperarsenha';
 
 /**

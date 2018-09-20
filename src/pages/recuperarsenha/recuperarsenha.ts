@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { SignAuthService } from '../../providers/services-sign-auth';
+import { SignAuthService } from '../../providers/AuthService
 
 @IonicPage()
 @Component({

@@ -1,22 +1,16 @@
 
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-
-import { HomePage } from '../home/home';
 import { User } from '../../models/user';
-import { SignAuthService } from '../../providers/AuthService
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { SignAuthService } from '../../providers/AuthService'
+import { HomePage } from '../../pages/home/home';
+
 @Component({
-  selector: 'page-cadastro',
+  selector: 'cadastro',
   templateUrl: 'cadastro.html'
 })
-export class CadastroPage {
+export class CadastroComponent {
 
   user: User = new User();
   @ViewChild('form') form: NgForm;
@@ -24,9 +18,7 @@ export class CadastroPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private authService: SignAuthService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
-  }
+  ionViewDidLoad() {  }
 
   createAccount() {
         

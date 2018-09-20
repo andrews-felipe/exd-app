@@ -6,7 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SignAuthService } from '../providers/services-sign-auth';
+import { SignAuthService } from '../providers/AuthService
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseconfig } from '../config/firebase-config';
