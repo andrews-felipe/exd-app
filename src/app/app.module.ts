@@ -1,28 +1,21 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { StatusBar } from '@ionic-native/status-bar';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SignAuthService } from '../providers/AuthService
+import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
-import { firebaseconfig } from '../config/firebase-config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { LoginPage } from '../pages/login/login';
-import { CadastroPage } from '../pages/cadastro/cadastro';
-import { TelaDeRecuperacaoComponent } from '../components/tela-de-recuperacao/tela-de-recuperacao';
+
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
+import { firebaseconfig } from '../firebaseconfig';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    TabsPage,
-    LoginPage,
-    CadastroPage,
-    TelaDeRecuperacaoComponent
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -34,28 +27,13 @@ import { TelaDeRecuperacaoComponent } from '../components/tela-de-recuperacao/te
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    TabsPage,
-    LoginPage,
-    CadastroPage,
-    TelaDeRecuperacaoComponent
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SignAuthService
+    AuthProvider
   ]
 })
 export class AppModule {}
-
-
-
-
-
-
-
-
-
-
-

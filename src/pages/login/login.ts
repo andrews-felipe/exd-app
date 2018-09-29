@@ -1,38 +1,32 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { CadastroPage } from '../cadastro/cadastro';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user';
-import { SignAuthService } from '../../providers/AuthService
-import { ResetpasswordPage } from '../recuperarsenha/recuperarsenha';
+import { PasswordResetPage } from '../password-reset/password-reset';
+import { SignupPage } from '../signup/signup';
+import { HomePage } from '../home/home';
+import { AuthProvider } from '../../providers/auth/auth';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
 })
 export class LoginPage {
 
     user: User = new User();
     @ViewChild('form') form: NgForm;
 
-    constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: SignAuthService) {
+    constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: AuthProvider) {
 
     }
 
     createAccount() {
-        this.navCtrl.push(CadastroPage);
+        this.navCtrl.push(SignupPage);
     }
 
     resetPassword() {
-         this.navCtrl.push(ResetpasswordPage);
+         this.navCtrl.push(PasswordResetPage);
      }
 
     signIn() {
@@ -64,6 +58,5 @@ export class LoginPage {
         }
         
     }
+
 }
-
-

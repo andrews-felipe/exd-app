@@ -1,10 +1,10 @@
-page-login {
-    ::placeholder { 
-        color: white;
-        opacity: 1; 
-      }
+page-signup {
 
-      .telaFundo {
+    ion-app.md [padding] .scroll-content {
+        padding: 16px;
+        background-color: royalblue;
+    }
+    .telaFundo{
         position: absolute;
     }
     .scroll-content {
@@ -22,30 +22,22 @@ page-login {
         contain: size style layout;
         background-color: #0000003d;
     }
-    ion-header {
-        left: 0;
-        top: 0;
-        position: absolute;
-        z-index: 10;
-        display: block;
-        width: 100%;
-        background-color: #c8c7cc;
-    }
     .centralizado{
         width: 50%;
         display: block;
+        margin-top: 20%;
         margin: auto;
+        position: relative;
     }
     .inputs{
         background-color: #0000ff7d;
         width: 50%;
-        color: white;
         margin: auto;
+        color: white;
         margin-top: 5%;
         width: 70%;
         height: 80%;
         border-radius: 50px;
-  
     }
     .botao{
         margin: auto;
@@ -55,8 +47,8 @@ page-login {
     .button-md{
         margin-top: 2%;
         width: auto;
-        background-color: #0000ff7d;
         display: block;
+        background-color: #0000ff7d;
         border-radius: 50px;
     }
     .opcoes{
@@ -67,7 +59,7 @@ page-login {
         margin-bottom: -10%;
     }
     .rebaixado{
-        margin-top: 50%;
-        position: relative;
+        margin-top: 20%;
     }
+
 }
