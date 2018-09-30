@@ -11,11 +11,13 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { firebaseconfig } from '../firebaseconfig';
+import { ServicesPage } from '../pages/services/services';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ServicesPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { firebaseconfig } from '../firebaseconfig';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ServicesPage
   ],
   providers: [
     StatusBar,
