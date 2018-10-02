@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { firebaseconfig } from '../firebaseconfig';
 import { ServicesPage } from '../pages/services/services';
+import { PersistenceProvider } from '../providers/persistence/persistence';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ServicesPage } from '../pages/services/services';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    PersistenceProvider
   ]
 })
 export class AppModule {}
