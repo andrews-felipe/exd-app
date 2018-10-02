@@ -1,6 +1,6 @@
+import { Service } from './../../../models/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 /**
  * Generated class for the ServiceRegisterPage page.
  *
@@ -12,13 +12,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-service-register',
   templateUrl: 'service-register.html',
 })
+
 export class ServiceRegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newService: Service = new Service();
+
+
+  constructor(private navCtrl: NavController, private navParams: NavParams,private persistence: PersistenceService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ServiceRegisterPage');
+  registerService(){
+    if(this.newService.title != null && this.newService.description != null 
+      && this.newService.imageUrl){
+
+      //this.persistence
+      
+    }
   }
 
 }
