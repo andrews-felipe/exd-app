@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Service } from '../../models/service';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the ServicesPage page.
@@ -14,11 +16,8 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ServicesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicesPage');
+  constructor(private navCtrl: NavController, private navParams: NavParams){
+    
   }
 
 }
