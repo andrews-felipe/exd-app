@@ -13,11 +13,9 @@ import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { firebaseconfig } from '../firebaseconfig';
 import { ServicesPage } from '../pages/services/services';
-<<<<<<< HEAD
 import { PortfolioPage } from '../pages/portfolio/portfolio';
-=======
+import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { PersistenceProvider } from '../providers/persistence/persistence';
->>>>>>> feature/view/model
 
 @NgModule({
   declarations: [
@@ -32,13 +30,15 @@ import { PersistenceProvider } from '../providers/persistence/persistence';
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ServicesPage,
+    ServiceRegisterPage,
     PortfolioPage
   ],
   providers: [
