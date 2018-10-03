@@ -18,9 +18,9 @@ export class PortfolioAdminPage {
 
     var index = -1;
 
-    if(this.existPortfolio(image))
+    if(this.existPortfolio(title))
     {
-      index = this.images.indexOf(image);
+      index = this.titles.indexOf(title);
     }
     if(index != -1)
     {
@@ -61,7 +61,7 @@ export class PortfolioAdminPage {
   {
     if(!this.isEmpty())
     {
-      if(title in this.titles)
+      if(this.existPortfolio(title))
       {
         var index = this.titles.indexOf(title);
 

@@ -13,7 +13,7 @@ export class PortfolioPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   
-  getPortfolio(index)
+  getPortfolioByIndex(index)
   {
     if(!this.isEmpty())
     {
