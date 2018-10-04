@@ -1,3 +1,4 @@
+import { PersistenceProvider } from './../providers/persistence/persistence';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -15,14 +16,15 @@ import { firebaseconfig } from '../firebaseconfig';
 import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
-import { PersistenceProvider } from '../providers/persistence/persistence';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ServicesPage,
-    PortfolioPage
+    PortfolioPage,
+    ServiceRegisterPage
   ],
   imports: [
     BrowserModule,
@@ -30,8 +32,8 @@ import { PersistenceProvider } from '../providers/persistence/persistence';
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     IonicImageViewerModule,
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,14 +41,14 @@ import { PersistenceProvider } from '../providers/persistence/persistence';
     HomePage,
     ServicesPage,
     ServiceRegisterPage,
-    PortfolioPage
+    PortfolioPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    PersistenceProvider
+    PersistenceProvider,
   ]
 })
 export class AppModule {}

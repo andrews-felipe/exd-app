@@ -11,7 +11,7 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = PortfolioPage;
+  rootPage:any = ServicesPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

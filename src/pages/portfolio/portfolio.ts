@@ -8,13 +8,10 @@ import { PortfolioAdminPage } from './portfolio-admin/portfolio-admin';
 })
 export class PortfolioPage {
 
-<<<<<<< HEAD
   titles: string[];
   descriptions: string[];
   images = ['portf1.jpg', 'portf2.jpg', 'portf3.png'];
-=======
   admin: PortfolioAdminPage;
->>>>>>> bd8674aa8d1ed70a6e762f4c76c3f6178ba55d77
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -55,11 +52,6 @@ export class PortfolioPage {
     {
       console.log("Não existe nenhum Portfolio cadastrado no sistema.");
     }
-  }
-
-  private isEmpty()
-  {
-    return (this.admin.titles.length > 0);
   }
 
   updatePortfolio(portfolioName, title, description, newPortfolioName){
@@ -105,6 +97,7 @@ export class PortfolioPage {
     return (title in this.titles);
   }
 
+  
   deletePortfolio(title)
   {
     if(this.isEmpty())

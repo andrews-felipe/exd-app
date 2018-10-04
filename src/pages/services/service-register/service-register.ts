@@ -1,6 +1,7 @@
+import { PersistenceProvider } from './../../../providers/persistence/persistence';
 import { Service } from './../../../models/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-service-register',
@@ -10,7 +11,7 @@ export class ServiceRegisterPage {
 
   newService: Service = new Service();
 
-  constructor(private navCtrl: NavController, private navParams: NavParams,/*private persistence: PersistenceService*/) {
+  constructor(private navCtrl: NavController, private navParams: NavParams,private persistence: PersistenceProvider) {
   }
 
   registerService(){
@@ -19,6 +20,8 @@ export class ServiceRegisterPage {
       //persistence.post(this.newService);
     }
   }
+
+  
 
   listAllService(){
     return null;

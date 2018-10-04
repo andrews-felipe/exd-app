@@ -1,10 +1,7 @@
+import { PersistenceProvider } from './../../providers/persistence/persistence';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-<<<<<<< HEAD
-=======
-import { Service } from '../../models/service';
-import { AuthProvider } from '../../providers/auth/auth';
->>>>>>> bd8674aa8d1ed70a6e762f4c76c3f6178ba55d77
+import { ProposalPage } from '../proposal/proposal';
 
 
 @Component({
@@ -13,8 +10,20 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class ServicesPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams){
+  allServices : Array<any> = new Array<any>();
+  
+  constructor(private navCtrl: NavController, private navParams: NavParams, private persistence: PersistenceProvider){
     
+  }
+
+  ngOnInit(){
+    this.persistence.getAll('services').forEach((item)=>{
+      this.allServices.push(item)
+    })
+  }
+
+  goProposal(currentService){
+      this.navCtrl.push(ProposalPage, currentService)
   }
 
 }

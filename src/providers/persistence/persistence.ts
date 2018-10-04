@@ -51,13 +51,13 @@ export class PersistenceProvider {
   }
 
   async upload(imageFile){
-    return new Promise((resolve, reject)=>{
+    return new Promise(async (resolve, reject)=>{
       let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
       const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
       .putString(imageFile, 'data_url');
       (resolve)=>{
         return uploadTask.downloadURL; 
-      }(err)=>{
+      };(err)=>{
         return err
       }
     })
