@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the PortfolioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PortfolioAdminPage } from './portfolio-admin/portfolio-admin';
 
 @Component({
   selector: 'page-portfolio',
@@ -14,15 +8,58 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PortfolioPage {
 
+<<<<<<< HEAD
   titles: string[];
   descriptions: string[];
   images = ['portf1.jpg', 'portf2.jpg', 'portf3.png'];
+=======
+  admin: PortfolioAdminPage;
+>>>>>>> bd8674aa8d1ed70a6e762f4c76c3f6178ba55d77
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+  
+  getPortfolioByIndex(index)
+  {
+    if(!this.isEmpty())
+    {
+      if(this.admin.titles.length >= index)
+      {
+        console.log(this.admin.images[index]);
+        console.log(this.admin.titles[index]);
+        console.log(this.admin.descriptions[index]);
+      }
+      else
+      {
+        console.log("Índice inválido.");
+      }
+    }
+    else
+    {
+      console.log("Não existe nenhum Portfolio cadastrado no sistema.");
+    }
+  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PortfolioPage');
+  getPortfolios()
+  {
+    if(!this.isEmpty())
+    {
+      for(var i = 0; i < this.admin.titles.length; i++)
+      {
+        console.log(this.admin.images[i]);
+        console.log(this.admin.titles[i]);
+        console.log(this.admin.descriptions[i]);
+      }
+    }
+    else
+    {
+      console.log("Não existe nenhum Portfolio cadastrado no sistema.");
+    }
+  }
+
+  private isEmpty()
+  {
+    return (this.admin.titles.length > 0);
   }
 
   updatePortfolio(portfolioName, title, description, newPortfolioName){
