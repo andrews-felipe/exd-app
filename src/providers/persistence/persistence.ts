@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
 export class PersistenceProvider {
 
-  constructor(private firemodule : AngularFireDatabase) {}
+  constructor(private firemodule : AngularFireDatabase, private storage: AngularFireStorage) {}
   /**
    * Method for getAll itens for ( Endpoint )
    * @param endpoint 
@@ -47,4 +49,28 @@ export class PersistenceProvider {
   remove(key: string, endpoint) {
     return this.firemodule.list(endpoint).remove(key);
   }
+
+  async upload(imageFile){
+    return new Promise((resolve, reject)=>{
+      let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
+      const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
+      .putString(imageFile, 'data_url');
+      (resolve)=>{
+        return uploadTask.downloadURL; 
+      }(err)=>{
+        return err
+      }
+    })
+    
+    
+  }
+  download(imgKey): Observable<any> {
+    const imgRef = this.storage.ref(`imagens/${imgKey}`);
+    return imgRef.getDownloadURL();
+  }
+
+  delete(imgKey){
+    this.storage.ref(`imagens/${imgKey}`).delete();
+  }
+
 }   
