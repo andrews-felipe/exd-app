@@ -17,14 +17,18 @@ import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { LoginPage } from '../pages/login/login';
+import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ServicesPage,
+    LoginPage,
     PortfolioPage,
-    ServiceRegisterPage
+    ServiceRegisterPage,
+    ProposalRegisterPage
   ],
   imports: [
     BrowserModule,
@@ -40,8 +44,10 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MyApp,
     HomePage,
     ServicesPage,
+    LoginPage,
     ServiceRegisterPage,
     PortfolioPage,
+    ProposalRegisterPage
   ],
   providers: [
     StatusBar,
