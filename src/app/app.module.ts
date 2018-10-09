@@ -14,13 +14,17 @@ import { AuthProvider } from '../providers/auth/auth';
 import { firebaseconfig } from '../firebaseconfig';
 import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
+import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
+import { ServiceRegistrationPage } from '../pages/service-registration/service-registration';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ServicesPage,
-    PortfolioPage
+    PortfolioPage,
+    ServiceRegisterPage,
+    ServiceRegistrationPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
     MyApp,
     HomePage,
     ServicesPage,
-    PortfolioPage
+    PortfolioPage,
+    ServiceRegisterPage,
+    ServiceRegistrationPage
   ],
   providers: [
     StatusBar,
