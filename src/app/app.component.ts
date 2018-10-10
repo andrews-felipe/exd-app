@@ -12,7 +12,7 @@ import { ProposalRegisterPage } from '../pages/proposal/proposal-register/propos
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ProposalRegisterPage;
+  rootPage:any = PortfolioPage;//ProposalRegisterPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
