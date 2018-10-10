@@ -25,15 +25,15 @@ export class ProposalRegisterPage {
   constructor(private navCtrl: NavController, private navParams: NavParams, private persistence: PersistenceProvider) {
   }
 
-  createProposal() {
+  registerProposal() {
     console.log(this.newProposal);
     this.persistence.post('proposta', this.newProposal);
   }
 
-  readAllProposal() {
+  listAllProposal() {
     this.persistence.getAll('proposta').subscribe(data => {
       this.proposals = data
-    }).add(error => console.log(error))
+    }).add(error => console.log(error));
   }
 
   deleteProposal() {

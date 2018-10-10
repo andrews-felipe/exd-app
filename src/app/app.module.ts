@@ -69,8 +69,8 @@ import { ProposalPage } from '../pages/proposal/proposal';
     PersistenceProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-  
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+
   ]
 })
-export class AppModule {}
+export class AppModule { }

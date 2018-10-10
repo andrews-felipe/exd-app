@@ -17,9 +17,13 @@ import { ProposalRegisterPage } from '../pages/proposal/proposal-register/propos
 })
 export class MyApp {
 <<<<<<< HEAD
+<<<<<<< HEAD
   rootPage:any = SettingsPage;
 =======
   rootPage:any = ProposalRegisterPage;
+>>>>>>> feature/view/model
+=======
+  rootPage:any = PortfolioPage;//ProposalRegisterPage;
 >>>>>>> feature/view/model
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
