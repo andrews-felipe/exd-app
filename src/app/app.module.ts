@@ -17,17 +17,10 @@ import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { AngularFireStorageModule } from 'angularfire2/storage';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { SettingsPage } from '../pages/settings/settings';
-=======
 import { LoginPage } from '../pages/login/login';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 import { ProposalPage } from '../pages/proposal/proposal';
->>>>>>> feature/view/model
-=======
-import { ProposalPage } from '../pages/proposal/proposal';
->>>>>>> feature/telaDePortfolio
 
 @NgModule({
   declarations: [
@@ -37,16 +30,9 @@ import { ProposalPage } from '../pages/proposal/proposal';
     LoginPage,
     PortfolioPage,
     ServiceRegisterPage,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    SettingsPage
-=======
+    SettingsPage,
     ProposalPage,
     ProposalRegisterPage
->>>>>>> feature/view/model
-=======
-    ProposalPage
->>>>>>> feature/telaDePortfolio
   ],
   imports: [
     BrowserModule,
@@ -55,7 +41,7 @@ import { ProposalPage } from '../pages/proposal/proposal';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    IonicImageViewerModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,24 +51,17 @@ import { ProposalPage } from '../pages/proposal/proposal';
     LoginPage,
     ServiceRegisterPage,
     PortfolioPage,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    SettingsPage
-=======
+    SettingsPage,
     ProposalPage,
     ProposalRegisterPage
->>>>>>> feature/view/model
-=======
-    ProposalPage
->>>>>>> feature/telaDePortfolio
   ],
   providers: [
     AuthProvider,
     PersistenceProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-  
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+
   ]
 })
-export class AppModule {}
+export class AppModule { }
