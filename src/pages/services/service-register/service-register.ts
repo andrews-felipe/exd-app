@@ -1,7 +1,7 @@
 import { PersistenceProvider } from './../../../providers/persistence/persistence';
 import { Service } from './../../../models/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams  } from 'ionic-angular';
 
 @Component({
   selector: 'page-service-register',
@@ -10,6 +10,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ServiceRegisterPage {
 
   newService: Service = new Service();
+  services: Array<any> = new Array<any>();
 
   constructor(private navCtrl: NavController, private navParams: NavParams,private persistence: PersistenceProvider) {
   }
@@ -17,23 +18,19 @@ export class ServiceRegisterPage {
   registerService(){
     if(this.newService.title != null && this.newService.description != null 
       && this.newService.imageUrl){
-      //persistence.post(this.newService);
+      this.persistence.post('services',this.newService);
     }
   }
 
-  
-
   listAllService(){
-    return null;
-    //return persistence.getAll();
-  }
-
-  updateService(){
-    //persistence.put(this.newService);
+    this.persistence.getAll('services').forEach((item)=>{
+      this.services.push(item);
+      
+    });
   }
 
   removeService(){
-    //persistence.delete(this.newService);
+    //this.persistence.remove(this.services, 'service');
   }
   
 }
