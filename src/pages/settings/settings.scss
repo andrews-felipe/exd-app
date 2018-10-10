@@ -1,0 +1,43 @@
+page-settings {
+    .navBar{
+        background-color: #432fb1;
+        width: 100%;
+        position: fixed;
+        height: 10%;
+    }
+    .botao{
+        color: white;
+        position: inherit;
+        font-size: 300%;
+        font-family: 'K2D', sans-serif;
+        width: auto;
+        height: auto;
+        margin-top: 2%;
+        margin-left: 4%;
+    }
+    .titulo{
+        text-align: center;
+        color: white;
+        font-family: 'K2D', sans-serif;
+        width: auto;
+        height: auto;
+        position: 0;
+    }
+    .opcoes{
+        background-color: rgba(255, 0, 0, 0.726);
+        display: block;
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 20px;
+        height: 50px;
+        margin-bottom: 10%;
+    }
+    .grade{
+        margin-top: 40%;
+    }
+    .rodape{
+        background-color: #432fb1;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+}
