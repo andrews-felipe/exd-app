@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PersistenceProvider {
 
-  constructor(private firemodule : AngularFireDatabase, private storage: AngularFireStorage) {}
+  constructor(private firemodule: AngularFireDatabase, private storage: AngularFireStorage) { }
   /**
    * Method for getAll itens for ( Endpoint )
    * @param endpoint 
@@ -35,11 +35,12 @@ export class PersistenceProvider {
    * @param endpoint 
    * @param object 
    */
-  post(endpoint, object){
+  post(endpoint, object) {
     return this.firemodule.list(endpoint).push(object)
   }
-  // put(endpoint, id, object){
-  //   return this.firemodule.list(`${endpoint}/${id}`).set()
+
+  // put(endpoint, id, object) {
+  //   return this.firemodule.list(`${endpoint}/${id}`).set();
   // }
 
   /**
@@ -50,26 +51,26 @@ export class PersistenceProvider {
     return this.firemodule.list(endpoint).remove(key);
   }
 
-  async upload(imageFile){
-    return new Promise(async (resolve, reject)=>{
+  async upload(imageFile) {
+    return new Promise(async (resolve, reject) => {
       let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
       const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
-      .putString(imageFile, 'data_url');
-      (resolve)=>{
-        return uploadTask.downloadURL; 
-      };(err)=>{
+        .putString(imageFile, 'data_url');
+      (resolve) => {
+        return uploadTask.downloadURL;
+      }; (err) => {
         return err
       }
     })
-    
-    
+
+
   }
   download(imgKey): Observable<any> {
     const imgRef = this.storage.ref(`imagens/${imgKey}`);
     return imgRef.getDownloadURL();
   }
 
-  delete(imgKey){
+  delete(imgKey) {
     this.storage.ref(`imagens/${imgKey}`).delete();
   }
 

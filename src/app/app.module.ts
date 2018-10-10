@@ -19,6 +19,7 @@ import { ServiceRegisterPage } from '../pages/services/service-register/service-
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { LoginPage } from '../pages/login/login';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
+import { ProposalPage } from '../pages/proposal/proposal';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProposalRegisterPage } from '../pages/proposal/proposal-register/propos
     LoginPage,
     PortfolioPage,
     ServiceRegisterPage,
+    ProposalPage,
     ProposalRegisterPage
   ],
   imports: [
@@ -47,14 +49,16 @@ import { ProposalRegisterPage } from '../pages/proposal/proposal-register/propos
     LoginPage,
     ServiceRegisterPage,
     PortfolioPage,
+    ProposalPage,
     ProposalRegisterPage
   ],
   providers: [
+    AuthProvider,
+    PersistenceProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,
-    PersistenceProvider,
+  
   ]
 })
 export class AppModule {}
