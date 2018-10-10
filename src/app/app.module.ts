@@ -18,12 +18,16 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { SettingsPage } from '../pages/settings/settings';
 =======
 import { LoginPage } from '../pages/login/login';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 import { ProposalPage } from '../pages/proposal/proposal';
 >>>>>>> feature/view/model
+=======
+import { ProposalPage } from '../pages/proposal/proposal';
+>>>>>>> feature/telaDePortfolio
 
 @NgModule({
   declarations: [
@@ -34,11 +38,15 @@ import { ProposalPage } from '../pages/proposal/proposal';
     PortfolioPage,
     ServiceRegisterPage,
 <<<<<<< HEAD
+<<<<<<< HEAD
     SettingsPage
 =======
     ProposalPage,
     ProposalRegisterPage
 >>>>>>> feature/view/model
+=======
+    ProposalPage
+>>>>>>> feature/telaDePortfolio
   ],
   imports: [
     BrowserModule,
@@ -58,11 +66,15 @@ import { ProposalPage } from '../pages/proposal/proposal';
     ServiceRegisterPage,
     PortfolioPage,
 <<<<<<< HEAD
+<<<<<<< HEAD
     SettingsPage
 =======
     ProposalPage,
     ProposalRegisterPage
 >>>>>>> feature/view/model
+=======
+    ProposalPage
+>>>>>>> feature/telaDePortfolio
   ],
   providers: [
     AuthProvider,
