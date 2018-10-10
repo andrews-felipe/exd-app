@@ -16,11 +16,8 @@ import { firebaseconfig } from '../firebaseconfig';
 import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
-<<<<<<< HEAD
 import { AngularFireStorageModule } from 'angularfire2/storage';
-=======
-import { ServiceRegistrationPage } from '../pages/service-registration/service-registration';
->>>>>>> feature/portfolio
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -28,7 +25,8 @@ import { ServiceRegistrationPage } from '../pages/service-registration/service-r
     HomePage,
     ServicesPage,
     PortfolioPage,
-    ServiceRegisterPage
+    ServiceRegisterPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -44,14 +42,9 @@ import { ServiceRegistrationPage } from '../pages/service-registration/service-r
     MyApp,
     HomePage,
     ServicesPage,
-<<<<<<< HEAD
     ServiceRegisterPage,
     PortfolioPage,
-=======
-    PortfolioPage,
-    ServiceRegisterPage,
-    ServiceRegistrationPage
->>>>>>> feature/portfolio
+    SettingsPage
   ],
   providers: [
     StatusBar,
