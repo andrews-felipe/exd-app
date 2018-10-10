@@ -1,7 +1,7 @@
 import { PersistenceProvider } from './../providers/persistence/persistence';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+//import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -36,14 +36,14 @@ import { ProposalPage } from '../pages/proposal/proposal';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    //IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     IonicImageViewerModule
   ],
-  bootstrap: [IonicApp],
+  //bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
@@ -60,7 +60,7 @@ import { ProposalPage } from '../pages/proposal/proposal';
     PersistenceProvider,
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+   // { provide: ErrorHandler, useClass: IonicErrorHandler },
 
   ]
 })

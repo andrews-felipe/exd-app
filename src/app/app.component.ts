@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+//import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -8,6 +8,7 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { SettingsPage } from '../pages/settings/settings';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 import { ProposalPage } from '../pages/proposal/proposal';
+import { Platform } from 'ionic-angular/platform/platform';
 
 
 @Component({
@@ -15,9 +16,7 @@ import { ProposalPage } from '../pages/proposal/proposal';
 })
 export class MyApp {
   rootPage:any = SettingsPage;
-  rootPage:any = ProposalRegisterPage;
-  rootPage:any =  PortfolioPage;
-  rootPage:any = PortfolioPage;//ProposalRegisterPage;
+ 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,7 +1,9 @@
 import { PersistenceProvider } from './../../../providers/persistence/persistence';
 import { Proposal } from './../../../models/proposal';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular/navigation/nav-controller';
+import { NavParams } from 'ionic-angular/navigation/nav-params';
+//import { NavController, NavParams } from 'ionic-angular';
 
 
 /**
