@@ -17,16 +17,28 @@ import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+<<<<<<< HEAD
 import { SettingsPage } from '../pages/settings/settings';
+=======
+import { LoginPage } from '../pages/login/login';
+import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
+import { ProposalPage } from '../pages/proposal/proposal';
+>>>>>>> feature/view/model
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ServicesPage,
+    LoginPage,
     PortfolioPage,
     ServiceRegisterPage,
+<<<<<<< HEAD
     SettingsPage
+=======
+    ProposalPage,
+    ProposalRegisterPage
+>>>>>>> feature/view/model
   ],
   imports: [
     BrowserModule,
@@ -42,16 +54,23 @@ import { SettingsPage } from '../pages/settings/settings';
     MyApp,
     HomePage,
     ServicesPage,
+    LoginPage,
     ServiceRegisterPage,
     PortfolioPage,
+<<<<<<< HEAD
     SettingsPage
+=======
+    ProposalPage,
+    ProposalRegisterPage
+>>>>>>> feature/view/model
   ],
   providers: [
+    AuthProvider,
+    PersistenceProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,
-    PersistenceProvider,
+  
   ]
 })
 export class AppModule {}

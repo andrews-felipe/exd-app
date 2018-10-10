@@ -1,24 +1,45 @@
+import { PersistenceProvider } from './../../../providers/persistence/persistence';
+import { Proposal } from './../../../models/proposal';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+
 
 /**
- * Generated class for the ProposalRegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * @author Mateus Lourenco
  */
 
 @Component({
   selector: 'page-proposal-register',
   templateUrl: 'proposal-register.html',
 })
+
+/**
+ * 
+ */
 export class ProposalRegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newProposal: Proposal = new Proposal();
+
+  proposals;
+
+  constructor(private navCtrl: NavController, private navParams: NavParams, private persistence: PersistenceProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProposalRegisterPage');
+  createProposal() {
+    console.log(this.newProposal);
+    this.persistence.post('proposta', this.newProposal);
+  }
+
+  readAllProposal() {
+    this.persistence.getAll('proposta').subscribe(data => {
+      this.proposals = data
+    }).add(error => console.log(error))
+  }
+
+  deleteProposal() {
+    if (this.newProposal !== null) {
+      this.persistence.remove(this.proposals, 'proposta');
+    }
   }
 
 }
