@@ -1,33 +1,62 @@
-page-portfolio {
-
-    .tituloDaPage{
-        color: white;
-        margin-top: 20%;
-        font-size: 300%;
-        font-family: 'Bree Serif', serif;
-        margin-bottom: 5%;
-        text-align: center;
-        position: relative;
-    }
-    .grade{
-        margin-top: 5%;
-    }
-    .telaDeFundo{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
-    .images{
-        width: 26.5%;
-        height: 100px;
-        margin-left: 5%;
-        position: relative;
-    }
-    .rodape{
-        background-color: red;
-        height: 50px;
-        color: white;
-        text-align: center;
-    }
-
+.toolbar-title-md{
+    text-align: center;
 }
+
+#button-add{
+    display:block;
+    margin-top: 30px;
+    margin-left: 185px;
+    border-radius: 50px 50px 50px;
+    background: #354b9c;
+    font-size: 20px;
+}
+
+#imagens{
+    padding-top: 20px;
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+}
+
+#titulo-imagem{
+    display: block;
+    margin-left: 45px;
+    font-size: 20px;
+    color: #354b9c;
+}
+
+#desc-imagem{
+    display: block;
+    margin-left: 45px;
+    margin-top: -10px;
+    font-size: 15px;
+    color: #c2c2c2;
+    text-align: justify;
+}
+
+#button-lixo{
+    display:block;
+    margin-left: 45px;
+    border-radius: 5px 5px 5px;
+    background: #354b9c;
+    font-size: 20px;
+}
+
+#button-edit{
+    display:block;
+    margin-left: 120px;
+    margin-top: -40px;
+    border-radius: 5px 5px 5px;
+    background: #354b9c;
+    font-size: 20px;
+}
+
+ul li.separador {
+    width: 88%;
+    margin-top: 30px;
+    margin-left: 5px;
+    border-top: 1px solid #c2c2c2;
+    list-style-type: none;
+}
+
+
