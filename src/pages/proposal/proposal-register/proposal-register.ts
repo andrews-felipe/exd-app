@@ -23,15 +23,7 @@ export class ProposalRegisterPage {
   proposals;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private persistence: PersistenceProvider) {
-    this.newProposal.title = 'cassio';
-    this.newProposal.desc = 'isso não é um teste';
-    this.newProposal.date = new Date();
-
   }
-
-  // list() {
-  //   console.log(this.proposals);
-  // }
 
   createProposal() {
     console.log(this.newProposal);
@@ -39,20 +31,14 @@ export class ProposalRegisterPage {
   }
 
   readAllProposal() {
-    this.persistence.getAll('proposta').then(data => {
-      console.log('entrou');
+    this.persistence.getAll('proposta').subscribe(data => {
       this.proposals = data
-      console.log(this.proposals);
-    }).catch(error => console.log(error))
+    }).add(error => console.log(error))
   }
 
   deleteProposal() {
     if (this.newProposal !== null) {
       this.persistence.remove(this.proposals, 'proposta');
-      console.log('Proposta removida com Sucesso!');
-    }
-    else {
-      console.log('Proposta inválida!');
     }
   }
 
