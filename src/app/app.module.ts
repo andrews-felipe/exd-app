@@ -15,7 +15,6 @@ import { ServicesPage } from '../pages/services/services';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { AngularFireStorageModule } from 'angularfire2/storage';
-import { SettingsPage } from '../pages/settings/settings';
 import { LoginPage } from '../pages/login/login';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 import { ProposalPage } from '../pages/proposal/proposal';
@@ -29,7 +28,6 @@ import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
     LoginPage,
     PortfolioPage,
     ServiceRegisterPage,
-    SettingsPage,
     ProposalPage,
     ProposalRegisterPage
   ],
@@ -49,7 +47,6 @@ import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
     LoginPage,
     ServiceRegisterPage,
     PortfolioPage,
-    SettingsPage,
     ProposalPage,
     ProposalRegisterPage
   ],

@@ -1,10 +1,12 @@
 page-service-register {
-    
     .navBar{
         background-color: #432fb1;
         width: 100%;
-        position: fixed;
         height: 10%;
+        position: fixed;
+    }
+    .divisoria{
+        margin-top: 35%;
     }
     .botao{
         color: white;
@@ -16,7 +18,7 @@ page-service-register {
         margin-top: 2%;
         margin-left: 4%;
     }
-    .titulo{
+    .tema{
         text-align: center;
         color: white;
         font-family: 'K2D', sans-serif;
@@ -24,26 +26,37 @@ page-service-register {
         height: auto;
         position: 0;
     }
+    .anexar{
+        background-color: #432fb1;
+        width: 15%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10%;
+        margin-bottom: 5%;
+    }
+    .titulo{
+        border-color: #432fb1;
+        border-radius: 20px;
+        height: 40px;
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10%;
+    }
     .grade{
-        margin-top: 40%;
+        text-align:center;
+        color: silver;
     }
-    .painel{
+    .enviar{
+        width: 70%;
+        border-radius: 15px;
         margin: 0 auto;
-        text-align: center;
-        width: auto;
-        height: auto;
-    }
-    .icone{
-        width: 35%;
-        height: 100%;
-        background-color: rgba(255, 0, 0, 0.726);
-        margin: 0 auto;
-        margin-top: 3%;
-        margin-left: 5%;
+        display: block;
     }
     .rodape{
+
         background-color: #432fb1;
         width: 100%;
-        margin-bottom: 0px;
+        height: 3%;
     }
 }

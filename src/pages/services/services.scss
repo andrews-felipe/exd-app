@@ -1,56 +1,63 @@
 
 page-services {
-    .logo{
-        width: 50%;
-        margin-top: 10%;
-        margin-left: 28%;
-        position: relative;
+    .navBar{
+        background-color: #432fb1;
+        width: 100%;
+        height: 10%;
+        position: fixed;
     }
-    .adicionar{
-        margin-left: 45%;
-        width: auto;
-        height: auto;
+    .divisoria{
+        margin-top: 35%;
     }
     .botao{
-        border-radius: 100%;
-        width: 20%;
-        height: 30px;
-        font-size: 150%;
-        margin-top: 20%;
-        margin-bottom: 5%;
-        background-color: #488aff;
         color: white;
-        position: relative;
+        position: inherit;
+        font-size: 300%;
+        font-family: 'K2D', sans-serif;
+        width: auto;
+        height: auto;
+        margin-top: 2%;
+        margin-left: 4%;
     }
-    .banner{
-        position: relative;
-        margin: auto;
-        margin-top: 10%;
-        display: block;
-        width: 80%;
-    }
-    .telaDeFundo{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
-    .opcoes{
-        border-radius: 50%;
-        margin-top: 5%;
+    .tema{
         text-align: center;
-        position: relative;
+        color: white;
+        font-family: 'K2D', sans-serif;
+        width: auto;
+        height: auto;
+        position: 0;
     }
-    .button-md {
-        width: 40%;
+    .anexar{
+        background-color: #432fb1;
+        width: 15%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10%;
+        margin-bottom: 5%;
     }
-    .button-ios {
-        border-radius: 4px;
-        height: 2pc;
-        font-size: 1.6rem;
-        color: #fff;
-        background-color: #488aff;
-        margin: 0.4rem 0.2rem;
-        padding: 0 1em;
-        width: 40%;
+    .titulo{
+        border-color: #432fb1;
+        border-radius: 20px;
+        height: 40px;
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10%;
+    }
+    .grade{
+        text-align:center;
+        color: silver;
+    }
+    .enviar{
+        width: 70%;
+        border-radius: 15px;
+        margin: 0 auto;
+        display: block;
+    }
+    .rodape{
+
+        background-color: #432fb1;
+        width: 100%;
+        height: 3%;
     }
 }

@@ -17,9 +17,7 @@ export class ServicesPage {
   }
 
   ngOnInit(){
-    this.persistence.getAll('services').forEach((item)=>{
-      this.allServices.push(item)
-    })
+   
   }
 
   goProposal(currentService){
