@@ -19,7 +19,7 @@ export class AuthProvider {
         user.email,
         user.password
       ).then(res=>{
-        resolve(res);  
+        resolve(this.getInfoUser());  
       }, error => {
           reject(error)
       });
@@ -35,9 +35,12 @@ export class AuthProvider {
         user.email,
         user.password
       ).then(res=>{
-        resolve();
         user.uid = this.fireAuth.auth.currentUser.uid
-        this.registerInfoUser(user)
+        this.registerInfoUser(user).then(
+          (res=>{
+            resolve();
+          })
+        )
       }, error =>{
         reject(error)
       }

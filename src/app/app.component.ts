@@ -9,13 +9,14 @@ import { ProposalPage } from '../pages/proposal/proposal';
 import { Platform } from 'ionic-angular/platform/platform';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SignupPage;
+  rootPage:any = LoginPage;
  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
