@@ -1,5 +1,4 @@
 
-
 .button-group {
     padding: 2%;
 }
@@ -18,10 +17,18 @@
 
 .text-red{
     color: #ed3237;
+}
+.text-blue{
+    color: #354b9c;
 }   
 
-.input-basic{
-    
+.form-group > ion-input{
+    background-color: #eaeaea;
+    border-radius: 25px;
+    border: solid 1px #354b9c;
+    width: 90%;
+    margin: 5% auto;
+    display: block;
 }
 
 .grid, 
@@ -30,5 +37,7 @@
 }
 .row{
     align-items: center;
+}
+ion-footer{
     border-bottom: 10px solid #354b9c;
 }

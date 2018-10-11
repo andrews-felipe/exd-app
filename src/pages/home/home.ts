@@ -16,8 +16,8 @@ export class HomePage {
 
   }
 
-  
   pushPage(view){
+    console.log(view)
     if(view === 'service'){ this.navCtrl.push(ServicesPage)}
     else if(view === 'portfolio'){ this.navCtrl.push(PortfolioPage)}
     else if(view === 'proposal'){ this.navCtrl.push(ProposalPage)}

@@ -19,6 +19,8 @@ import { LoginPage } from '../pages/login/login';
 import { ProposalRegisterPage } from '../pages/proposal/proposal-register/proposal-register';
 import { ProposalPage } from '../pages/proposal/proposal';
 import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
+import { ConfigPage } from '../pages/config/config';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
     PortfolioPage,
     ServiceRegisterPage,
     ProposalPage,
-    ProposalRegisterPage
+    ProposalRegisterPage,
+    ConfigPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
     ServiceRegisterPage,
     PortfolioPage,
     ProposalPage,
-    ProposalRegisterPage
+    ProposalRegisterPage,
+    ConfigPage,
+    SignupPage
   ],
   providers: [
     AuthProvider,

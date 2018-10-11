@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { User } from '../../models/user';
 import { NgForm } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -13,9 +13,10 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class SignupPage {
 
   user: User = new User();
+
   @ViewChild('form') form: NgForm;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, private authService: AuthProvider) {
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
   }
 
   ionViewDidLoad() {
@@ -35,7 +36,7 @@ export class SignupPage {
                 toast.setMessage('Usuário criado com sucesso.');
                 toast.present();
 
-                this.navCtrl.setRoot(HomePage);
+                this.navCtrl.setRoot(LoginPage);
             })
             .catch((error: any) => {
 

@@ -1,24 +1,26 @@
-<style>
-  ::placeholder { 
-    color: white;
-    opacity: 1; 
-  }
-</style>
-<body>
-<img class="telaFundo" src="../../assets/imgs/TelaFundo.jpg">
-<div class="rebaixado">
-  <img class="centralizado" src="../../assets/imgs/Marca_Exodo.svg">
-</div>
-<div>
-  <ion-input type="text" class="inputs" placeholder="Nome" ></ion-input>
-  <ion-input type="numeric" class="inputs " placeholder="Telefone"></ion-input>
-  <ion-input type="text" class="inputs" placeholder="Cidade"></ion-input>
-  <ion-input type="text" class="inputs " placeholder="Email"></ion-input>
-  <ion-input type="text" class="inputs" placeholder="Senha"></ion-input>
 
-</div>
-<div>
-  <button ion-button class="botao">Cadastrar</button>
-</div>
-<p></p>
-</body>
+<ion-content center text-center>
+    <ion-grid>
+      <ion-row center>
+        <ion-col>
+          <p class="text-blue">Cadastro</p>
+            <form class="form-group">
+              <ion-input type="text" placeholder="Nome" [(ngModel)]="user.name" name="nome"></ion-input>
+              <ion-input type="numeric" placeholder="Telefone" [(ngModel)]="user.phone"name="phone"></ion-input>
+              <ion-input type="text" placeholder="Cidade" [(ngModel)]="user.city" name="city"></ion-input>
+              <ion-input type="text" placeholder="Email" [(ngModel)]="user.email" name="email"></ion-input>
+              <ion-input type="text" placeholder="Senha" [(ngModel)]="user.password" name="password"></ion-input>
+          
+              <div class="button-group">
+                  <button (click)="sign()">Cadastrar</button>
+              </div>
+
+            </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+  
+  <ion-footer>
+  </ion-footer>
