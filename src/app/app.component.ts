@@ -10,6 +10,7 @@ import { Platform } from 'ionic-angular/platform/platform';
 import { ServiceRegisterPage } from '../pages/services/service-register/service-register';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
+import { ConfigPage } from '../pages/config/config';
 
 
 @Component({

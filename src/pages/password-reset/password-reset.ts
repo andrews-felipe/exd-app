@@ -10,7 +10,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class PasswordResetPage {
 
   userEmail: string = '';
-  @ViewChild('form') form: NgForm;
+ 
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
 
@@ -18,7 +18,7 @@ export class PasswordResetPage {
 
   resetPassword() {
 
-      if(this.form.form.valid) {
+      if(this.userEmail !== '') {
           this.authService.resetPassword(this.userEmail)
 
               let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});

@@ -21,6 +21,7 @@ import { ProposalPage } from '../pages/proposal/proposal';
 import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
 import { ConfigPage } from '../pages/config/config';
 import { SignupPage } from '../pages/signup/signup';
+import { PasswordResetPage } from '../pages/password-reset/password-reset';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SignupPage } from '../pages/signup/signup';
     ProposalPage,
     ProposalRegisterPage,
     ConfigPage,
-    SignupPage
+    SignupPage,
+    PasswordResetPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { SignupPage } from '../pages/signup/signup';
     ProposalPage,
     ProposalRegisterPage,
     ConfigPage,
-    SignupPage
+    SignupPage,
+    PasswordResetPage
   ],
   providers: [
     AuthProvider,
