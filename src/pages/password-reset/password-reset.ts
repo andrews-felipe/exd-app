@@ -18,13 +18,12 @@ export class PasswordResetPage {
 
   resetPassword() {
 
-      if(this.userEmail !== '') {
-          this.authService.resetPassword(this.userEmail)
 
-              let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+        let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
 
-              this.authService.resetPassword(this.userEmail)
-              .then(() => {
+        console.log('entrou')
+        this.authService.resetPassword(this.userEmail)
+            .then(() => {
 
                   toast.setMessage('Solicitação foi enviada para o seu e-mail.');
                   toast.present();
@@ -56,7 +55,7 @@ export class PasswordResetPage {
                   }
                   toast.present();
               });      
-      }
+
       
   }
 
