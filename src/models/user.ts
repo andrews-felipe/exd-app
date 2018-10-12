@@ -1,5 +1,5 @@
 export class User{    
-    type : string;    
+    type : boolean;    
     name:string;
     phone:number;
     city:string;

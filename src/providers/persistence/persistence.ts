@@ -20,16 +20,24 @@ export class PersistenceProvider {
       })
   }
   /**
-   * Method for get only one element 
+   * @ Mateus Lourenço
+   * Implementação : O getById servirá apenas para captar as propostas do usuário, assim ele 
+   * poderá acompanhar as mesmas. 
+   * 
+   * Como será feito ? Usando o módulo (this.firemodule) terá que ser feito uma query na base 
+   * pegando as propostas pelo o uid do usuário atual,ou seja para cada proposta cadastrada no sistema
+   * elas terão o uid do usuário. Esse uid poderá ser visto no service Auth
+   * lá existe um atributo currentUser.
+   * 
    * @param endpoint 
    * @param key 
    */
-  get(endpoint, key: string) {
-    return this.firemodule.object(endpoint + key).snapshotChanges()
-      .map(res => {
-        return { key: res.key, ...res.payload.val() };
-      });
+  getById(endpoint, key) {
+    
   }
+  
+  
+  
   /**
    * Method for sae item in database with endpoint
    * @param endpoint 
@@ -39,18 +47,30 @@ export class PersistenceProvider {
     return this.firemodule.list(endpoint).push(object)
   }
 
-  // put(endpoint, id, object) {
-  //   return this.firemodule.list(`${endpoint}/${id}`).set();
-  // }
+  /**
+   * Method for update objects in database
+   * 
+   * @param endpoint 
+   * @param object 
+   */
+  put(endpoint, object){
+    this.firemodule.list(endpoint).set(object.key, object)
+  }
 
   /**
+   * Method for remove item in database
+   * 
    * @param key
    * @param endpoint
    */
   remove(key: string, endpoint) {
     return this.firemodule.list(endpoint).remove(key);
   }
-
+  
+  /**
+   * Method for upload img and return link
+   * @param imageFile 
+   */
   async upload(imageFile) {
     return new Promise(async (resolve, reject) => {
       let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
@@ -73,5 +93,8 @@ export class PersistenceProvider {
   delete(imgKey) {
     this.storage.ref(`imagens/${imgKey}`).delete();
   }
+
+
+  
 
 }   

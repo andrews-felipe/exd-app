@@ -4,6 +4,7 @@ import { ServicesPage } from '../services/services';
 import { PortfolioPage } from '../portfolio/portfolio';
 import { ProposalPage } from '../proposal/proposal';
 import { ConfigPage } from '../config/config';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ import { ConfigPage } from '../config/config';
 export class HomePage {
 
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private auth : AuthProvider) {
 
   }
 
@@ -22,6 +23,10 @@ export class HomePage {
     else if(view === 'portfolio'){ this.navCtrl.push(PortfolioPage)}
     else if(view === 'proposal'){ this.navCtrl.push(ProposalPage)}
     else if(view === 'config'){ this.navCtrl.push(ConfigPage)}
+  }
+
+  test(){
+    this.auth.getInfoUser()
   }
 
 }

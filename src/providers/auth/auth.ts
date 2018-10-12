@@ -1,11 +1,15 @@
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
 export class AuthProvider {
 
+  
+  currentUser : Observable<any>  
+  
   constructor(private fireAuth : AngularFireAuth, private dataBase : AngularFireDatabase) {
 
   }
@@ -19,7 +23,7 @@ export class AuthProvider {
         user.email,
         user.password
       ).then(res=>{
-        resolve(this.getInfoUser());  
+        resolve();  
       }, error => {
           reject(error)
       });
@@ -58,8 +62,12 @@ export class AuthProvider {
    * Method for get user with uid in current login.
    */
   getInfoUser(){
-      const process = this.fireAuth.auth.currentUser.uid
-      return this.dataBase.list('user.uid').query.equalTo(process).toJSON()
+    const currentUid = this.fireAuth.auth.currentUser.uid
+    this.dataBase.list('user').query.orderByChild('uid').equalTo(currentUid)
+            .once("child_added")
+            .then(res=>{
+                this.currentUser = res.val()
+    })
   }
 
   /**

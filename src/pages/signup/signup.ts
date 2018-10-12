@@ -14,48 +14,44 @@ export class SignupPage {
 
   user: User = new User();
 
-  @ViewChild('form') form: NgForm;
-
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
-  }
+  /***
+   *  @Ayrton
+   *   Testar essa tela, e observar se o fluxo de mensagens está realmente funcionando
+   */
 
-  createAccount() {
-        
-    if(this.form.form.valid) { 
+  signUp() {
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
 
-        let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    this.authService.singUpUser(this.user)
+        .then((user: any) => {
+            user.sendEmailVerification();
 
-        this.authService.singUpUser(this.user)
-            .then((user: any) => {
-                user.sendEmailVerification();
+            toast.setMessage('Usuário criado com sucesso.');
+            toast.present();
 
-                toast.setMessage('Usuário criado com sucesso.');
-                toast.present();
+            this.navCtrl.setRoot(LoginPage);
+        })
+        .catch((error: any) => {
 
-                this.navCtrl.setRoot(LoginPage);
-            })
-            .catch((error: any) => {
-
-                if(error.code == 'auth/email-already-in-use') {
-                    toast.setMessage('O e-mail digitado já está em uso.');
-                }
-                else if(error.code == 'auth/invalid-email') {
-                    toast.setMessage('O e-mail digitado não é valido.');
-                }
-                else if(error.code == 'auth/operation-not-allowed') {
-                    toast.setMessage('Não está habilitado criar usuários.');
-                }
-                else if(error.code == 'auth/weak-password') {
-                    toast.setMessage('A senha digitada é muito fraca.');
-                }
-                toast.present();
+            if(error.code == 'auth/email-already-in-use') {
+                toast.setMessage('O e-mail digitado já está em uso.');
+            }
+            else if(error.code == 'auth/invalid-email') {
+                toast.setMessage('O e-mail digitado não é valido.');
+            }
+            else if(error.code == 'auth/operation-not-allowed') {
+                toast.setMessage('Não está habilitado criar usuários.');
+            }
+            else if(error.code == 'auth/weak-password') {
+                toast.setMessage('A senha digitada é muito fraca.');
+            }
+            toast.present();
         });
     }
     
   }
 
-}
+
