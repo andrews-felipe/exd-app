@@ -18,30 +18,37 @@ import { NavParams } from 'ionic-angular/navigation/nav-params';
 /**
  * 
  */
+/**
+   * @Humberto 
+   * 
+   * Criar um Objeto Proposta aqui, fazer a validação do mesmo, a proposta deve conter no mínimo 
+   *  200 caracteres, e o título 20 caracteres
+   * 
+   *  criar os métodos de validação e envio da proposta para o service persistencia, no objeto
+   *  deve também está incluido o uid do usuário, que pode ser acessado no service auth atributo currentUser
+   *  
+   *  
+   */
+
+
 export class ProposalRegisterPage {
 
   newProposal: Proposal = new Proposal();
 
-  proposals;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private persistence: PersistenceProvider) {
   }
 
+
   registerProposal() {
-    console.log(this.newProposal);
-    this.persistence.post('proposta', this.newProposal);
+
   }
 
-  listAllProposal() {
-    this.persistence.getAll('proposta').subscribe(data => {
-      this.proposals = data
-    }).add(error => console.log(error));
+
+  validateProposal(){
+    
   }
 
-  deleteProposal() {
-    if (this.newProposal !== null) {
-      this.persistence.remove(this.proposals, 'proposta');
-    }
-  }
+  
 
 }

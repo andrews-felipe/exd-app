@@ -9,6 +9,12 @@ import { NavController, NavParams  } from 'ionic-angular';
   })
 export class ServiceRegisterPage {
 
+/*
+  @Ayrton
+  *  
+  * Criar método e fluxo de anexar imagem, usar a biblioteca nativa do ionic, e enviar para 
+  * o service database, método upload.
+*/
   newService: Service = new Service();
   services: Array<any> = new Array<any>();
 
