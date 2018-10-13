@@ -1,62 +1,44 @@
-.toolbar-title-md{
-    text-align: center;
-}
+page-portfolio {
+    .img{
+        // padding-top: 20px;
+        margin: 0 auto;
+        display: block;
+        width: 80%;
+    }
+    
+    .title-item{
+        font-size: 1.8rem;
+        color: #354b9c;
+        text-align: justify;
+        margin: 0;
+    }
 
-#button-add{
-    display:block;
-    margin-top: 30px;
-    margin-left: 185px;
-    border-radius: 50px 50px 50px;
-    background: #354b9c;
-    font-size: 20px;
-}
+    .description{
+        color: #c2c2c2;
+        text-align: justify;
+        font-size: 1.4rem;
+        padding: 0;
+        margin: 2% 0% 2% 0%;
+    }
+    .info{
+        padding: 0% 5% 0px 5%;
+    }
+    .options{
+        width: 55% !important;
+        padding: 2% !important;
+    }
 
-#imagens{
-    padding-top: 20px;
-    margin: 0 auto;
-    display: block;
-    width: 80%;
-}
 
-#titulo-imagem{
-    display: block;
-    margin-left: 45px;
-    font-size: 20px;
-    color: #354b9c;
-}
-
-#desc-imagem{
-    display: block;
-    margin-left: 45px;
-    margin-top: -10px;
-    font-size: 15px;
-    color: #c2c2c2;
-    text-align: justify;
-}
-
-#button-lixo{
-    display:block;
-    margin-left: 45px;
-    border-radius: 5px 5px 5px;
-    background: #354b9c;
-    font-size: 20px;
-}
-
-#button-edit{
-    display:block;
-    margin-left: 120px;
-    margin-top: -40px;
-    border-radius: 5px 5px 5px;
-    background: #354b9c;
-    font-size: 20px;
-}
-
-ul li.separador {
-    width: 88%;
-    margin-top: 30px;
-    margin-left: 5px;
-    border-top: 1px solid #c2c2c2;
-    list-style-type: none;
+    .grid{
+        height: unset;
+    }
+    img{
+        max-width: 90%
+    }
+    hr{
+        width: 90%;
+        margin: 8% auto;
+    }
 }
 
 

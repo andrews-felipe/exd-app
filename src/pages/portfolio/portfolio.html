@@ -1,62 +1,40 @@
 
-<!--  
-  
-  @Mathaus
-  
-  Refatoração da página seguindo o mesmo fluxo do ProposalPage 
-
-
-  Criar o fluxo de integração, ngFor para listar os itens usando o array definido no ts
-
-
-  COnversar com bitão para saber o modo que ele implementou
-
--->
-
 <ion-header>
-
-  <ion-navbar color="color-base">
-    <ion-title>P o r t f ó l i o</ion-title>
-  </ion-navbar>
-  <body>
-
-    <button id="button-add" ion-button icon-end>
-      <ion-icon name="md-add"></ion-icon>
-    </button>
-
-    <img id="imagens" src="../../assets/imgs/imagem_portfolio.jpg">
-      
-    <p id="titulo-imagem">Consciência Cristã Branding</p>
-    <p id="desc-imagem">Gestão de branding do evento da consciência cristã,
-      <br>um evento sediado em Campina Grande com
-      <br>grande estrutura.</p>
-
-    <button id="button-lixo" ion-button icon-end>
-      <ion-icon name="ios-trash-outline"></ion-icon>
-    </button>
-    <button id="button-edit" ion-button icon-end>
-      <ion-icon name="ios-create-outline"></ion-icon>
-    </button>
-      
-    <ul>
-      <li class="separador"></li>
-    </ul>
-
-    <img id="imagens" src="../../assets/imgs/imagem_portfolio.jpg">
-      
-    <p id="titulo-imagem">Consciência Cristã Branding</p>
-    <p id="desc-imagem">Gestão de branding do evento da consciência cristã,
-      <br>um evento sediado em Campina Grande com
-      <br>grande estrutura.</p>
-
-    <button id="button-lixo" ion-button icon-end>
-      <ion-icon name="ios-trash-outline"></ion-icon>
-    </button>
-    <button id="button-edit" ion-button icon-end>
-      <ion-icon name="ios-create-outline"></ion-icon>
-    </button>
-      
-    </body>
+    <ion-navbar>
+      <ion-title>
+        <p class="titles md-tx">Serviços</p>
+      </ion-title>
+    </ion-navbar>
   </ion-header>
-  
-<ion-content padding>
+ 
+<ion-content center text-center>
+      <ion-icon *ngIf="this.auth.currentUser.type" class="add-icon" 
+      (click)="create()"
+      ios="ios-add-circle" 
+      md="md-add-circle"></ion-icon>
+    <ion-grid>
+      <ion-row>
+          <ion-col col-12 *ngFor="let item of portfolio">
+      
+                <img id="imagens" [src]="item.imageUrl">
+                <div class="info">
+                    <p class="title-item">{{item.title}}</p>
+                    <p class="description">{{item.description}}</p>
+                </div>  
+                
+                  <div *ngIf="this.auth.currentUser.type" class="options">
+                        <button class="item-red" ion-button icon-end>
+                            <ion-icon name="ios-trash-outline"></ion-icon>
+                          </button>
+                          <button class="item-blue" ion-button icon-end>
+                            <ion-icon name="ios-create-outline"></ion-icon>
+                          </button>
+                  </div>
+                  <hr>
+              </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+    <ion-footer>
+      </ion-footer>

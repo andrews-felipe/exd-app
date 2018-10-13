@@ -17,7 +17,7 @@
                   
                   <ion-col col-6 *ngFor="let item of serviceList">
     
-                    <img [src]="item.imageUrl" alt="item.title">
+                    <img (click)="goProposal(item)" [src]="item.imageUrl" alt="item.title">
                     <div *ngIf="this.auth.currentUser.type" class="options">
                         <button class="item-red" ion-button icon-end>
                             <ion-icon name="ios-trash-outline"></ion-icon>

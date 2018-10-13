@@ -5,6 +5,7 @@ import { ProposalPage } from '../proposal/proposal';
 import { Service } from '../../models/service';
 import { Observable } from 'rxjs';
 import { AuthProvider } from '../../providers/auth/auth';
+import { ServiceRegisterPage } from './service-register/service-register';
 
 
 @Component({
@@ -34,6 +35,10 @@ export class ServicesPage {
    */
   goProposal(currentService){
       this.navCtrl.push(ProposalPage, currentService)
+  }
+
+  create(){
+    this.navCtrl.push(ServiceRegisterPage)
   }
 
 }

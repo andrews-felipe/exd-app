@@ -85,3 +85,14 @@ ion-footer{
     padding: 5%;
     color: #354b9c;
 }
+ion-textarea{
+    width: 85%;
+    background-color: #eaeaea;
+    border: solid 1px #354b9c;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 0% 5% 5% 0%;
+}
+.platform-mobile textarea.text-input{
+    height: 10rem;
+}

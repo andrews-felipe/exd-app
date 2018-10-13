@@ -22,6 +22,8 @@ import { IonicModule, IonicApp, IonicErrorHandler } from 'ionic-angular';
 import { ConfigPage } from '../pages/config/config';
 import { SignupPage } from '../pages/signup/signup';
 import { PasswordResetPage } from '../pages/password-reset/password-reset';
+import { PortfolioRegisterPage } from '../pages/portfolio/portfolio-register/portfolio-register';
+import { GalleryProvider } from '../providers/gallery/gallery';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { PasswordResetPage } from '../pages/password-reset/password-reset';
     ProposalRegisterPage,
     ConfigPage,
     SignupPage,
-    PasswordResetPage
+    PasswordResetPage,
+    PortfolioRegisterPage
   ],
   imports: [
     BrowserModule,
@@ -57,14 +60,16 @@ import { PasswordResetPage } from '../pages/password-reset/password-reset';
     ProposalRegisterPage,
     ConfigPage,
     SignupPage,
-    PasswordResetPage
+    PasswordResetPage,
+    PortfolioRegisterPage
   ],
   providers: [
     AuthProvider,
     PersistenceProvider,
     StatusBar,
     SplashScreen,
-   { provide: ErrorHandler, useClass: IonicErrorHandler }
+   { provide: ErrorHandler, useClass: IonicErrorHandler },
+    GalleryProvider
   ]
 })
 export class AppModule { }
