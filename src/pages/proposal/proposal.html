@@ -13,8 +13,10 @@
     
               <div class="info">
                   <p class="title-item">{{item.title}}</p>
-                  <p class="description">{{item.description}}</p>
+                  <p class="mt-item text-red">{{item.type}}</p>
+                  <p class="description bd-text">{{item.description}}</p>
               </div>  
+              <button (click)="goProposal(item)" id="btn-view" class="item-blue">Visualizar</button>
                 <hr>
             </ion-col>
       </ion-row>

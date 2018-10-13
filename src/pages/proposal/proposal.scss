@@ -21,4 +21,25 @@ page-proposal{
     .row{
         height: unset;
     }
+    
+    .mt-item{
+        text-align: justify;
+        font-size: 1.4rem;
+        margin: 0;
+    }
+    .bd-text{
+        font-size: 1.3rem ;
+    }
+
+    #btn-view{
+        margin: 5% 0% 10% 5%;
+        display: block;
+        color: white;
+        padding: 2% 8% 2% 8%;
+        border-radius: 3px;
+        box-shadow: 0px 2px 3px #a5a5a5;
+    }
+    .info{
+        margin: 5% 0% 0% 0%;
+    }
 }

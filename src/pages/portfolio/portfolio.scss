@@ -22,9 +22,13 @@ page-portfolio {
     .info{
         padding: 0% 5% 0px 5%;
     }
-    .options{
+    .align-left{
         width: 60% !important;
         padding: 2% !important;
+    }
+    .align-left > *{
+        height: 2.5rem;
+        padding: 0 15%;
     }
 
 

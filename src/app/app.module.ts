@@ -25,6 +25,7 @@ import { PasswordResetPage } from '../pages/password-reset/password-reset';
 import { PortfolioRegisterPage } from '../pages/portfolio/portfolio-register/portfolio-register';
 import { GalleryProvider } from '../providers/gallery/gallery';
 import { Camera } from '@ionic-native/camera';
+import { DetailProposalPage } from '../pages/proposal/detail-proposal/detail-proposal';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { Camera } from '@ionic-native/camera';
     ConfigPage,
     SignupPage,
     PasswordResetPage,
-    PortfolioRegisterPage
+    PortfolioRegisterPage,
+    ProposalRegisterPage,
+    DetailProposalPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,9 @@ import { Camera } from '@ionic-native/camera';
     ConfigPage,
     SignupPage,
     PasswordResetPage,
-    PortfolioRegisterPage
+    PortfolioRegisterPage,
+    ProposalRegisterPage,
+    DetailProposalPage
   ],
   providers: [
     AuthProvider,

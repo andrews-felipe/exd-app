@@ -31,10 +31,10 @@ export class ServicesPage {
     this.services = this.persistence.getAll('services')
   }
   /**
-   * Method for go to page  "Create Proposal" sending choised service.
+   * Method for go to page "Create Proposal" sending choised service.
    */
   goProposal(currentService){
-      this.navCtrl.push(ProposalPage, currentService)
+      this.navCtrl.push(ProposalPage, currentService.type)
   }
 
   create(){

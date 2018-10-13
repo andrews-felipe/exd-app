@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <p class="titles md-tx">Propostas</p>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content center text-center>
+    <ion-grid>
+      <ion-row>
+          <ion-col col-12>
+      
+                <div class="info">
+                    <p class="title-item">{{proposal.title}}</p>
+                    <p class="mt-item text-red">{{proposal.type}}</p>
+                    <p class="description bd-text">{{proposal.description}}</p>
+                </div>  
+                <button (click)="goProposal()" id="btn-view" class="item-blue">Visualizar</button>
+                  <hr>
+              </ion-col>
+
+              <ion-col col-12 *ngFor="let message of proposal.messages">
+      
+                  <div class="info">
+                      <p class="title-item">{{message.author}}</p>
+                      <p class="mt-item text-red">{{proposal.type}}</p>
+                      <p class="description bd-text">{{message.body}}</p>
+                      <p class="sm-tx metadata">{{message.date}}</p>
+                  </div>  
+                  
+                    <hr>
+                </ion-col>
+                <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="message" name="description"></ion-textarea>
+                <button (click)="senMessage()" id="btn-view" class="item-blue">Enviar</button>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+  
+    <ion-footer>
+      </ion-footer>

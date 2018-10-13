@@ -20,24 +20,18 @@ export class PersistenceProvider {
       })
   }
   /**
-   * @ Mateus Lourenço
-   * Implementação : O getById servirá apenas para captar as propostas do usuário, assim ele 
-   * poderá acompanhar as mesmas. 
-   * 
-   * Como será feito ? Usando o módulo (this.firemodule) terá que ser feito uma query na base 
-   * pegando as propostas pelo o uid do usuário atual,ou seja para cada proposta cadastrada no sistema
-   * elas terão o uid do usuário. Esse uid poderá ser visto no service Auth
-   * lá existe um atributo currentUser.
-   * 
+   * Method for return proposals of user current
    * @param endpoint 
    * @param key 
    */
-  getById(endpoint, key) {
-    
+  getById(endpoint, uid) {
+    return this.firemodule.list('proposal').query.orderByChild('uid').equalTo(uid)
+            .once("child_added")
+            .then(res=>{
+                console.log(res)
+    })
   }
-  
-  
-  
+    
   /**
    * Method for sae item in database with endpoint
    * @param endpoint 
@@ -53,9 +47,11 @@ export class PersistenceProvider {
    * @param endpoint 
    * @param object 
    */
-  put(endpoint, object){
-    this.firemodule.list(endpoint).set(object.key, object)
+  put(endpoint, object) {
+    return this.firemodule.object(`/${endpoint}/'${object.key}`)
+    .update({ content: object.content , done: !object.done });    
   }
+  
 
   /**
    * Method for remove item in database
@@ -72,7 +68,6 @@ export class PersistenceProvider {
    * @param imageFile 
    */
   async upload(base64Image) {
-    let linkImg
     let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
     const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
       .putString(base64Image, 'data_url');
@@ -89,8 +84,6 @@ export class PersistenceProvider {
   delete(imgKey) {
     this.storage.ref(`imagens/${imgKey}`).delete();
   }
-
-
   
 
 }   

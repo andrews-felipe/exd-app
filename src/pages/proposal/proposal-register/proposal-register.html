@@ -1,19 +1,38 @@
-<!-- 
-  @ Matthaus
-  Rececer o código Proposta nessa página
 
-  O usuário cadastra uma proposta
-
- -->
 <ion-header>
- 
-  <ion-navbar>
-    <ion-title>proposal-register</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title>
+        <p class="titles md-tx">Nova Proposta</p>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content center text-center>
+      <ion-grid>
+        <ion-row>
+            <ion-col>
+              
+            <form class="form-group">
+                <ion-input maxlength="20" type="text" placeholder="Título" [(ngModel)]="item.title" name="title"></ion-input>
+              </form>
+                <div>
+                  <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="item.description" name="description"></ion-textarea>
+                </div>
+                <p class="sm-tx metadata">Anexar Imagem</p>
+                <button (click)="addImage()" class="img-btn" ion-button icon-end>
+                    <ion-icon name="md-image"></ion-icon>
+                  </button>
+                <p *ngIf="imgCurrent"class="text-blue sm-tx">A imagem foi adicionada</p>
+                <div class="button-group">
+                    <button (click)="sendProposal()">Enviar</button>
+                </div>
+
+            </ion-col>
+        </ion-row>
+      </ion-grid>
   
-</ion-header>
+    </ion-content>
 
-
-<ion-content padding>
-
-</ion-content>
+    <ion-footer>
+      </ion-footer>

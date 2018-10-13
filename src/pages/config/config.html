@@ -1,12 +1,18 @@
-<div class="navBar">
-  <h1 class="botao" href="#"></h1>
-  <h1 class="titulo">Configurações</h1>
-  <ion-icon></ion-icon>
+
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <p class="titles md-tx">Configurações</p>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+ 
+<ion-content center text-center>
+<div class="button-group">
+    <button (click)="pushPage('service')">Alterar Senha</button>
+    <button (click)="pushPage('portfolio')">Alterar Dados</button>
 </div>
-<div class="grade">
-  <button ion-button class="opcoes">Alterar Senha</button>
-  <button ion-button class="opcoes">Alterar Dados</button>
-</div>
-<ion-footer class="rodape">
-    <p> </p>
-</ion-footer>
+</ion-content>
+
+<ion-footer>
+  </ion-footer>
