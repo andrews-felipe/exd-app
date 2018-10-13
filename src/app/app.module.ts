@@ -24,6 +24,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { PasswordResetPage } from '../pages/password-reset/password-reset';
 import { PortfolioRegisterPage } from '../pages/portfolio/portfolio-register/portfolio-register';
 import { GalleryProvider } from '../providers/gallery/gallery';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,9 @@ import { GalleryProvider } from '../providers/gallery/gallery';
     StatusBar,
     SplashScreen,
    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    GalleryProvider
+    GalleryProvider,
+    Camera
+
   ]
 })
 export class AppModule { }

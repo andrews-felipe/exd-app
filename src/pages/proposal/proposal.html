@@ -1,60 +1,25 @@
-<!-- @Matthaus
-
-    Refatoração e integração da tela Proposta, quero que você integre as entradas
-    com ngModel, retirar o Body e a entrutura HTML básica, o body já está definido na index
-
-    migrar esse código para proposal register
-
-    o código deve ter a seguinte estrutura
-
-    <ion-header>
-  
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <p class="titles md-tx">Propostas</p>
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content center text-center>
-    <ion-grid>
-          <ion-row center>
-                <ion-col>
-
-                  CÓDIGO
-
-                </ion-col>
-          </ion-row>
-    </ion-grid>
-
-  </ion-content>
-
-<ion-footer>
-</ion-footer>
-   
-
-  Essa tela deve listar as propostas do usuário comum e do todas para o administrador
-
--->
-<ion-header>
-
-  <ion-navbar color="color-base">
-    <ion-title>P r o p o s t a</ion-title>
-  </ion-navbar>
-  <body>
-    <img id="logo-proposal" src="../../assets/imgs/Marca_Exodo.png">
-    <div>
-    <ion-input id="caixa-titulo"type="text" class="inputs" placeholder="Título"></ion-input>
-    </div>
-    <div>
-    <ion-input id="caixa-proposta" type="text" class="inputs " placeholder="Prosposta"></ion-input>
-    </div>
-    <p id="text-anexar">Anexar Foto ( Opcional )</p>
-    <button id="button-anexo" ion-button icon-end>
-        <ion-icon name="ios-image-outline"></ion-icon>
-      </button>
-    <p id="text-imagem">A imagem foi adicionada</p>
-    <button class="btn btn-primary btn-block">Enviar</button>
+  <ion-grid>
+    <ion-row>
+        <ion-col col-12 *ngFor="let item of proposals">
     
-    
-    </body>
-  </ion-header>
-  
-<ion-content padding>
-
+              <div class="info">
+                  <p class="title-item">{{item.title}}</p>
+                  <p class="description">{{item.description}}</p>
+              </div>  
+                <hr>
+            </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>
+
+  <ion-footer>
+    </ion-footer>

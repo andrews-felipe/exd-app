@@ -7,8 +7,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class GalleryProvider {
 
   
-  imageSrc
-  
   constructor(private camera: Camera) {
    
   }
@@ -17,17 +15,21 @@ export class GalleryProvider {
    */
   openGallery () {  
     let cameraOptions = {
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.FILE_URI,      
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.FILE_URI,      
       quality: 100,
       targetWidth: 1000,
       targetHeight: 1000,
-      encodingType: Camera.EncodingType.JPEG,      
+      encodingType: this.camera.EncodingType.JPEG,      
       correctOrientation: true
     }
     this.camera.getPicture(cameraOptions)
-      .then(file_uri => this.imageSrc = file_uri,
-      err => console.log(err));  
+      .then(file_uri =>{
+        return file_uri;     
+      }).catch(
+        err=>{
+          console.log(err)
+      });  
    }
 
 }

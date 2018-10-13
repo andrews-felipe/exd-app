@@ -29,6 +29,7 @@
     width: 85%;
     margin: 5% auto;
     display: block;
+    padding-left: 1%;
 }
 
 .grid, 
@@ -58,7 +59,8 @@ ion-footer{
 
 }
 .toolbar-title{
-    width: 80%;
+    width: 60%;
+    margin: 0 auto;
 }
 .button-md{
     height: 2.5rem;
@@ -81,7 +83,7 @@ ion-footer{
 
 .add-icon{
     font-size: 4.5rem;
-    text-shadow: 0px 1px #243779;
+    text-shadow: 0px 2px #243779;
     padding: 5%;
     color: #354b9c;
 }

@@ -17,13 +17,11 @@
       <ion-grid>
         <ion-row>
             <ion-col>
-                <p class="sm-tx metadata">Anexar Imagem Tamanho padrão 100x100</p>
-                <button (click)="img.openGallery()" class="img-btn" ion-button icon-end>
+                <p class="sm-tx metadata">Anexar Imagem Tamanho padrão 500x400</p>
+                <button (click)="addImage()" class="img-btn" ion-button icon-end>
                     <ion-icon name="md-image"></ion-icon>
                   </button>
-                <p class="text-blue sm-tx">A imagem foi adicionada</p>
-               
-                
+                <p *ngIf="imgCurrent"class="text-blue sm-tx">A imagem foi adicionada</p>
             <form class="form-group">
                 <ion-input type="text" placeholder="Título" [(ngModel)]="item.title" name="title"></ion-input>
               </form>
@@ -31,7 +29,7 @@
                   <ion-textarea type="text" placeholder="Descrição" [(ngModel)]="item.description" name="description"></ion-textarea>
                 </div>
                 <div class="button-group">
-                    <button (click)="signUp()">Enviar</button>
+                    <button (click)="sendItem()">Enviar</button>
                 </div>
 
             </ion-col>

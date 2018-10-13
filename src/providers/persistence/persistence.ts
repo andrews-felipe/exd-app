@@ -71,20 +71,16 @@ export class PersistenceProvider {
    * Method for upload img and return link
    * @param imageFile 
    */
-  async upload(imageFile) {
-    return new Promise(async (resolve, reject) => {
-      let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
-      const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
-        .putString(imageFile, 'data_url');
-      (resolve) => {
-        return uploadTask.downloadURL;
-      }; (err) => {
-        return err
-      }
-    })
+  async upload(base64Image) {
+    let linkImg
+    let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
+    const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
+      .putString(base64Image, 'data_url');
 
-
+    return uploadTask.downloadURL;
+    
   }
+
   download(imgKey): Observable<any> {
     const imgRef = this.storage.ref(`imagens/${imgKey}`);
     return imgRef.getDownloadURL();

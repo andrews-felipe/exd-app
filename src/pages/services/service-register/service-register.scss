@@ -1,62 +1,14 @@
 page-service-register {
-    .navBar{
-        background-color: #432fb1;
-        width: 100%;
-        height: 10%;
-        position: fixed;
+    .img-btn{
+        padding: 5%;
+        border-radius: 5px 5px 5px;
+        background: #354b9c;
+        margin-top: -15px;
+        height: 3.5rem;
     }
-    .divisoria{
-        margin-top: 35%;
-    }
-    .botao{
-        color: white;
-        position: inherit;
-        font-size: 300%;
-        font-family: 'K2D', sans-serif;
-        width: auto;
-        height: auto;
-        margin-top: 2%;
-        margin-left: 4%;
-    }
-    .tema{
-        text-align: center;
-        color: white;
-        font-family: 'K2D', sans-serif;
-        width: auto;
-        height: auto;
-        position: 0;
-    }
-    .anexar{
-        background-color: #432fb1;
-        width: 15%;
-        display: block;
-        margin: 0 auto;
-        border-radius: 10%;
-        margin-bottom: 5%;
-    }
-    .titulo{
-        border-color: #432fb1;
-        border-radius: 20px;
-        height: 40px;
-        width: 70%;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 10%;
-    }
-    .grade{
-        text-align:center;
-        color: silver;
-    }
-    .enviar{
-        width: 70%;
-        border-radius: 15px;
-        margin: 0 auto;
-        display: block;
-    }
-    .rodape{
+    .metadata{
+        padding: 0% 20% 2% 20%;
+        color: gray;
 
-        background-color: #432fb1;
-        width: 100%;
-        height: 3%;
     }
 }
