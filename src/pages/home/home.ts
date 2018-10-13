@@ -16,17 +16,15 @@ export class HomePage {
   constructor(public navCtrl: NavController, private auth : AuthProvider) {
 
   }
-
+  /**
+   * Method for navigate in views
+   * @param view 
+   */
   pushPage(view){
-    console.log(view)
     if(view === 'service'){ this.navCtrl.push(ServicesPage)}
     else if(view === 'portfolio'){ this.navCtrl.push(PortfolioPage)}
     else if(view === 'proposal'){ this.navCtrl.push(ProposalPage)}
     else if(view === 'config'){ this.navCtrl.push(ConfigPage)}
-  }
-
-  test(){
-    this.auth.getInfoUser()
   }
 
 }

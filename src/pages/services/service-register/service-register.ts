@@ -1,7 +1,7 @@
 import { PersistenceProvider } from './../../../providers/persistence/persistence';
 import { Service } from './../../../models/service';
 import { Component } from '@angular/core';
-import { NavController, NavParams  } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-service-register',
@@ -9,34 +9,38 @@ import { NavController, NavParams  } from 'ionic-angular';
   })
 export class ServiceRegisterPage {
 
-/*
-  @Ayrton
-  *  
-  * Criar método e fluxo de anexar imagem, usar a biblioteca nativa do ionic, e enviar para 
-  * o service database, método upload.
-*/
+  /**
+   * Instance of new Service for system
+   */
   newService: Service = new Service();
-  services: Array<any> = new Array<any>();
+  
 
-  constructor(private navCtrl: NavController, private navParams: NavParams,private persistence: PersistenceProvider) {
+  constructor(private navCtrl: NavController,
+              private toastCtrl: ToastController,
+              private persistence: PersistenceProvider,
+              private navParams : NavParams
+            ) {
+    
+    /***
+     * Receiving type of service.
+     */
+    this.newService.title = this.navParams.data  
   }
-
+  /**
+   * Method for validate and save service in database
+   */
   registerService(){
-    if(this.newService.title != null && this.newService.description != null 
-      && this.newService.imageUrl){
-      this.persistence.post('services',this.newService);
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    
+    if(this.newService.title && this.newService.description && this.newService.imageUrl){
+      this.persistence.post('services', this.newService)
+      .then(()=>{
+          toast.setMessage('Serviço Cadastrado com sucesso!');
+          toast.present();
+      })
+    }else{
+      toast.setMessage('Todos os campos devem ser preenchidos');
+      toast.present();
     }
   }
-
-  listAllService(){
-    this.persistence.getAll('services').forEach((item)=>{
-      this.services.push(item);
-      
-    });
-  }
-
-  removeService(){
-    //this.persistence.remove(this.services, 'service');
-  }
-  
 }

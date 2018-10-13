@@ -1,5 +1,5 @@
 export class Service{
-    type:string;
+    key : string;
     title: string;
     description:string;
     imageUrl: string;

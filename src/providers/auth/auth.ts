@@ -24,6 +24,7 @@ export class AuthProvider {
         user.password
       ).then(res=>{
         resolve();  
+        this.getInfoUser()
       }, error => {
           reject(error)
       });

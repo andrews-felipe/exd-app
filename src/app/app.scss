@@ -1,30 +1,4 @@
-/**
-* @JoseHumberto
-* Generalizar as classes do css. Nesse arquivo estão algumas classes usadas pelo sistema, quero
-* que você refatore o seu CSS e o HTML das páginas, com a seguinte estrutura
 
-<ion-header>
-  
-</ion-header>
-
-<ion-content center text-center>
-    <ion-grid>
-          <ion-row center>
-                <ion-col>
-              CONTEUDO
-
-                </ion-col>
-          </ion-row>
-    </ion-grid>
-
-  </ion-content>
-
-<ion-footer>
-</ion-footer>
-
-    Vai retirar todos os Navbars das páginas não principais
-    Ou seja tirar de todas exceto Login e Home, pois os mesmos vão ser gerenciados pelo Ionic
-*/
 .button-group {
     padding: 2%;
 }
@@ -77,4 +51,37 @@ ion-footer{
 }
 .link{
     text-decoration: underline;
+}
+.titles{
+    padding: 0;
+    color : white;
+
+}
+.toolbar-title{
+    width: 80%;
+}
+.button-md{
+    height: 2.5rem;
+    padding : 0 15%;
+}
+
+.item-blue{
+    background-color: #354b9c
+}
+.item-red{
+    background-color: #ed3237;
+}
+.toolbar-background-md{
+    background: #354b9c;
+    border-bottom: 5px solid #2d428c
+}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+    color: white;
+}
+
+.add-icon{
+    font-size: 4.5rem;
+    text-shadow: 0px 1px #243779;
+    padding: 5%;
+    color: #354b9c;
 }

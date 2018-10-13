@@ -16,12 +16,15 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
   }
-
-  /***
-   *  @Ayrton
-   *   Testar essa tela, e observar se o fluxo de mensagens está realmente funcionando
+  /**
+   * Define user default
    */
-
+  ngOnInit(){
+      this.user.type = false;
+  }
+  /**
+   *  Create user in database of system
+   */
   signUp() {
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
 

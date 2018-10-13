@@ -1,16 +1,33 @@
 
     <ion-header>
-  
-    </ion-header>
+        <ion-navbar>
+          <ion-title>
+            <p class="titles md-tx">Serviços</p>
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
     
     <ion-content center text-center>
         <ion-grid>
+            <ion-icon *ngIf="this.auth.currentUser.type" class="add-icon" 
+                      (click)="create()"
+                      ios="ios-add-circle" 
+                      md="md-add-circle"></ion-icon>
               <ion-row>
-                    <ion-col>
+                  
+                  <ion-col col-6 *ngFor="let item of serviceList">
     
-                      CÓDIGO
-    
-                    </ion-col>
+                    <img [src]="item.imageUrl" alt="item.title">
+                    <div *ngIf="this.auth.currentUser.type" class="options">
+                        <button class="item-red" ion-button icon-end>
+                            <ion-icon name="ios-trash-outline"></ion-icon>
+                          </button>
+                          <button class="item-blue" ion-button icon-end>
+                            <ion-icon name="ios-create-outline"></ion-icon>
+                          </button>
+                  </div>
+
+                  </ion-col>
               </ion-row>
         </ion-grid>
     

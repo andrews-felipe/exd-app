@@ -21,7 +21,7 @@ export class PasswordResetPage {
 
         let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
 
-        console.log('entrou')
+      
         this.authService.resetPassword(this.userEmail)
             .then(() => {
 
