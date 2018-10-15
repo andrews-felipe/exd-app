@@ -13,7 +13,7 @@ page-detail-proposal {
         margin: 0;
     }
     .mt-item{
-        text-align: justify;
+        text-align: center;
         font-size: 1.4rem;
         margin: 0;
     }
@@ -72,6 +72,14 @@ page-detail-proposal {
     .grid{
         height: 50%;
         overflow: auto;
+    }
+    .title-item{
+        padding: 0% 0% 0% 5%;
+        font-size: 1.3rem;
+        margin: 0
+    }
+    .content-message{
+        margin-top: -5%;
     }
 
 }

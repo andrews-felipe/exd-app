@@ -36,16 +36,11 @@ export class DetailProposalPage {
   }
 
   async getProposal(){
-
-    this.currentProposal =  this.persistence.getById('user', '-LOZVbc1vN1cDwzCeiBy')
-    console.log(this.currentProposal)
+    this.currentProposal =  await this.persistence.getById('proposal', this.currentProposal.key)
   }
-
-  update(){
-    this.currentProposal.name = 'felipe'
-    console.log(this.currentProposal)
-    this.persistence.put('user', this.currentProposal)
-  }
+  /**
+   * Method for send message in proposal
+   */
   sendMessage(){
     let toast = this.toastCtrl.create({duration : 3000, position : 'bottom'})
     let auxObject : Proposal

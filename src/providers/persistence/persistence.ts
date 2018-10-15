@@ -40,7 +40,7 @@ export class PersistenceProvider {
     return this.firemodule.list(endpoint).query.orderByKey().equalTo(key)
             .once("child_added")
             .then(res=>{
-              return {key : key, ...res.val()}
+              return { key : key, ...res.val()}
     })
   }
     
@@ -59,9 +59,14 @@ export class PersistenceProvider {
    * @param endpoint 
    * @param object 
    */
-  put(endpoint, object) {
-    return this.firemodule.object(`/${endpoint}/'${object.key}`)
-    .update({ content: object.content , done: !object.done });    
+  put(endpoint, item) {
+    let key = item.key
+    delete item.key
+    return new Promise((resolve, reject) => {
+      this.firemodule.list(endpoint).set(key, item)
+        .then(() => resolve())
+        .catch((err) => reject(err))
+    })
   }
   
 

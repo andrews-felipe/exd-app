@@ -1,6 +1,6 @@
 page-service-register {
     .img-btn{
-        padding: 5%;
+        padding: 5% 5% 5% 3%;
         border-radius: 5px 5px 5px;
         background: #354b9c;
         margin-top: -15px;
@@ -10,5 +10,8 @@ page-service-register {
         padding: 0% 20% 2% 20%;
         color: gray;
 
+    }
+    .toolbar-title{
+        width: 70%;
     }
 }
