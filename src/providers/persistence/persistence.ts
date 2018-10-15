@@ -13,7 +13,7 @@ export class PersistenceProvider {
    * @param endpoint 
    */
   getAll(endpoint) {
-    return this.firemodule.list(endpoint, ref => ref.orderByChild('name'))
+    return this.firemodule.list(endpoint)
       .snapshotChanges()
       .map(changes => {
         return changes.map(res => ({ key: res.payload.key, ...res.payload.val() }));
@@ -24,11 +24,23 @@ export class PersistenceProvider {
    * @param endpoint 
    * @param key 
    */
-  getById(endpoint, uid) {
-    return this.firemodule.list('proposal').query.orderByChild('uid').equalTo(uid)
+  getByUid(endpoint, uid) {
+    let mappedItens : Array<any> = new Array<any>()
+    return this.firemodule.list(endpoint).query.orderByChild('uid').equalTo(uid)
+            .once("value")
+            .then(res=>{
+                res.forEach((item)=>{
+                  mappedItens.push({key : item.key, ...item.val()})
+            })
+            return mappedItens
+    })
+  }
+
+  getById(endpoint, key) {
+    return this.firemodule.list(endpoint).query.orderByKey().equalTo(key)
             .once("child_added")
             .then(res=>{
-                console.log(res)
+              return {key : key, ...res.val()}
     })
   }
     
@@ -68,6 +80,7 @@ export class PersistenceProvider {
    * @param imageFile 
    */
   async upload(base64Image) {
+    
     let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
     const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
       .putString(base64Image, 'data_url');

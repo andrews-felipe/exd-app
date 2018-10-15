@@ -11,13 +11,14 @@ import { ServiceRegisterPage } from '../pages/services/service-register/service-
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
 import { ConfigPage } from '../pages/config/config';
+import { DetailProposalPage } from '../pages/proposal/detail-proposal/detail-proposal';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any = DetailProposalPage;
  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

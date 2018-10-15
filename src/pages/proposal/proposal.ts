@@ -1,10 +1,8 @@
 import { Component , OnInit} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
-import { Proposal } from '../../models/proposal';
 import { DetailProposalPage } from './detail-proposal/detail-proposal';
-import { Observable } from 'rxjs';
 
 
 
@@ -20,7 +18,7 @@ export class ProposalPage {
     {type : 'Branding', title : 'Vinicius Ramos', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
   ]
 
-  proposalList : Observable<any> = new Observable<any>()
+  proposalList
 
   constructor(public navCtrl: NavController, 
               private auth : AuthProvider, 
@@ -33,7 +31,7 @@ export class ProposalPage {
     if(this.auth.currentUser['type']){
       this.proposalList = this.persistence.getAll('proposal')
     }else{
-      // this.proposalList = this.persistence.getById('proposal', this.auth.currentUser['uid'])
+      this.proposalList = this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
     }
   }
 

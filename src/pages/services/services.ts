@@ -1,11 +1,11 @@
 import { PersistenceProvider } from './../../providers/persistence/persistence';
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
-import { ProposalPage } from '../proposal/proposal';
 import { Service } from '../../models/service';
 import { Observable } from 'rxjs';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ServiceRegisterPage } from './service-register/service-register';
+import { ProposalRegisterPage } from '../proposal/proposal-register/proposal-register';
 
 
 @Component({
@@ -24,9 +24,9 @@ export class ServicesPage {
   ];
   
   constructor(private navCtrl: NavController, private persistence: PersistenceProvider, private auth : AuthProvider){
-      console.log(this.auth.currentUser)
+      
   }
-
+  
   ngOnInit(){
     this.services = this.persistence.getAll('services')
   }
@@ -34,7 +34,7 @@ export class ServicesPage {
    * Method for go to page "Create Proposal" sending choised service.
    */
   goProposal(currentService){
-      this.navCtrl.push(ProposalPage, currentService.type)
+      this.navCtrl.push(ProposalRegisterPage, currentService.type)
   }
 
   create(){

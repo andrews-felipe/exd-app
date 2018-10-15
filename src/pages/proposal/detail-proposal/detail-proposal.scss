@@ -1,3 +1,77 @@
 page-detail-proposal {
 
+    .info{
+        text-align: initial;
+        padding: 0% 0% 0% 5%;
+    }
+    .md-tx{
+        padding: 0;
+        margin: 0;
+    }
+    .sm-tx{
+        padding: 0;
+        margin: 0;
+    }
+    .mt-item{
+        text-align: justify;
+        font-size: 1.4rem;
+        margin: 0;
+    }
+    .bd-text{
+        font-size: 1.3rem ;
+    }
+    .grid, .row{
+        height: unset;
+    }
+
+    .description{
+        color: #717171;
+        text-align: justify;
+        font-size: 1.3rem;
+        padding: 0;
+        margin: 2% 5% 2% 0%;
+    }
+    ion-textarea{
+        width: 90%;
+        // margin: 10% auto 0%;
+    }
+    hr{
+        width: 90%;
+    }
+    .btn-view{
+        position: relative;
+        margin: 5% auto 10%;
+    }
+    .fixed-content{
+        position : fixed;
+
+    }
+    .scroll-content{
+        background-color: #dedede;
+    }
+    .message-area{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        padding: 10% 0% 0% 0%;
+        box-shadow: 0px 2px 10px grey;
+    }
+    .message{
+        background: white;
+        padding: 5%;
+        border-radius: 15px;
+    }
+    .metadata{
+        color: #717171;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+   
+    .grid{
+        height: 50%;
+        overflow: auto;
+    }
+
 }

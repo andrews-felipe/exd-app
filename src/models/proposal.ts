@@ -1,6 +1,7 @@
 import { Message } from "./message";
 
 export class Proposal {
+    key : string;
     uid : string;
     type : string;
     imageUrl : any

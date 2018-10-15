@@ -9,32 +9,42 @@
   <ion-content center text-center>
     <ion-grid>
       <ion-row>
-          <ion-col col-12>
-      
-                <div class="info">
-                    <p class="title-item">{{proposal.title}}</p>
-                    <p class="mt-item text-red">{{proposal.type}}</p>
-                    <p class="description bd-text">{{proposal.description}}</p>
-                </div>  
-                <button (click)="goProposal()" id="btn-view" class="item-blue">Visualizar</button>
-                  <hr>
+        <div class="box-message">
+        <ion-col col-12>
+            <div class="info">
+                    <p class="mt-item text-red">Proposta de : {{proposal.type}}</p>
+                    <br>
+                    <p class="title-item text-blue sm-tx">{{proposal.title}}</p>
+                    <p class="description bd-text message">{{proposal.description}}</p>
+                    <p class="sm-tx metadata">{{proposal.date}}</p>
+                </div> 
+                <hr> 
               </ion-col>
 
               <ion-col col-12 *ngFor="let message of proposal.messages">
       
                   <div class="info">
-                      <p class="title-item">{{message.author}}</p>
-                      <p class="mt-item text-red">{{proposal.type}}</p>
-                      <p class="description bd-text">{{message.body}}</p>
+                      <p class="title-item text-blue sm-tx">{{message.author}}</p>
+                      <p class="description sm-tx bd-text message">{{message.body}}</p>
                       <p class="sm-tx metadata">{{message.date}}</p>
                   </div>  
                   
                     <hr>
                 </ion-col>
-                <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="message" name="description"></ion-textarea>
-                <button (click)="senMessage()" id="btn-view" class="item-blue">Enviar</button>
+              </div>
+                <ion-col col-12>
+                    <div class="message-area">
+                        <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="message.body" name="description"></ion-textarea>
+                        <button (click)="getProposal()" class="item-blue btn-view">Enviar</button>
+                        <button (click)="update()" class="item-blue btn-view">up</button>
+                      </div>
+                </ion-col>
+
+                
+                
         </ion-row>
     </ion-grid>
+  
   </ion-content>
   
     <ion-footer>
