@@ -68,6 +68,7 @@ export class AuthProvider {
             .once("child_added")
             .then(res=>{
                 this.currentUser = res.val()
+                this.currentUser['key'] = res.key
                 console.log(this.currentUser)
     })
   }

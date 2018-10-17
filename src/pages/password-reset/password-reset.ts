@@ -13,7 +13,9 @@ export class PasswordResetPage {
  
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
-
+    if(this.authService.currentUser){
+        this.userEmail = this.authService.currentUser['email']
+    }
   }
 
   resetPassword() {

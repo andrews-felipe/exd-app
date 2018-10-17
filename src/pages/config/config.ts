@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PasswordResetPage } from '../password-reset/password-reset';
+import { SignupPage } from '../signup/signup';
 
 
 @Component({
@@ -11,8 +13,12 @@ export class ConfigPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfigPage');
+  changePassword(){
+    this.navCtrl.push(PasswordResetPage)
+  }
+
+  changeInfo(){
+    this.navCtrl.push(SignupPage)
   }
 
 }
