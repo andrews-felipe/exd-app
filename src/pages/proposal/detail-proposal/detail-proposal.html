@@ -6,22 +6,22 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content center text-center>
+  <ion-content center text-center *ngIf="DOM">
     <ion-grid>
       <ion-row>
         <div class="box-message">
         <ion-col col-12 center>
             <div class="info">
-                    <p class="mt-item text-red text-center">Proposta de : {{proposal.type}}</p>
+                    <p class="mt-item text-red text-center">Proposta de : {{currentProposal.author}}</p>
                     <br>
-                    <p class="title-item text-blue sm-tx">{{proposal.title}}</p>
-                    <p class="description bd-text message">{{proposal.description}}</p>
-                    <p class="sm-tx metadata">{{proposal.date}}</p>
+                    <p class="title-item text-blue sm-tx">{{currentProposal.title}}</p>
+                    <p class="description bd-text message">{{currentProposal.description}}</p>
+                    <p class="sm-tx metadata">{{currentProposal.date}}</p>
                 </div> 
                 <hr> 
               </ion-col>
 
-              <div class="content-message" *ngFor="let message of proposal.messages">
+              <div class="content-message" *ngFor="let message of messages">
       
                   <div class="info">
                     <p class="title-item text-blue">{{message.author}}</p>
@@ -35,12 +35,9 @@
                 <ion-col col-12>
                     <div class="message-area">
                         <ion-textarea maxlength="200" type="text" placeholder="Menssagem" [(ngModel)]="message.body" name="description"></ion-textarea>
-                        <button (click)="getProposal()" class="item-blue btn-view">Enviar</button>
+                        <button (click)="sendMessage()" class="item-blue btn-view">Enviar</button>
                       </div>
-                </ion-col>
-
-                
-                
+                </ion-col>              
         </ion-row>
     </ion-grid>
   

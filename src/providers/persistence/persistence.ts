@@ -3,21 +3,31 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+
 
 @Injectable()
 export class PersistenceProvider {
+
+
+  currentItem
 
   constructor(private firemodule: AngularFireDatabase, private storage: AngularFireStorage) { }
   /**
    * Method for getAll itens for ( Endpoint )
    * @param endpoint 
    */
-  getAll(endpoint) {
-    return this.firemodule.list(endpoint)
-      .snapshotChanges()
-      .map(changes => {
-        return changes.map(res => ({ key: res.payload.key, ...res.payload.val() }));
-      })
+  getAll(endpoint){
+    let mappedItens : Array<any> = new Array<any>()
+    return this.firemodule.list(endpoint).query
+            .once("value")
+            .then(res=>{
+                res.forEach((item)=>{
+                  mappedItens.push({key : item.key, ...item.val()})
+            })
+            return mappedItens
+    })
   }
   /**
    * Method for return proposals of user current

@@ -1,5 +1,5 @@
 import { PersistenceProvider } from './../../providers/persistence/persistence';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { Service } from '../../models/service';
 import { Observable } from 'rxjs';
@@ -12,23 +12,23 @@ import { ProposalRegisterPage } from '../proposal/proposal-register/proposal-reg
   selector: 'page-services',
   templateUrl: 'services.html',
 })
-export class ServicesPage {
+export class ServicesPage implements OnInit {
   
-  services : Observable<any> = new Observable<any>()
+  servicesList
 
-  serviceList : Array<Service> = [
-    {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
-    {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
-    {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
-    {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
-  ];
+  // serviceList : Array<Service> = [
+  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
+  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
+  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
+  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
+  // ];
   
   constructor(private navCtrl: NavController, private persistence: PersistenceProvider, private auth : AuthProvider){
       
   }
   
-  ngOnInit(){
-    this.services = this.persistence.getAll('services')
+  async ngOnInit(){
+    this.servicesList = await this.persistence.getAll('services')
   }
   /**
    * Method for go to page "Create Proposal" sending choised service.

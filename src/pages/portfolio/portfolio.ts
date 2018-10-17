@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { PortifolioItem } from '../../models/portifolio';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -10,7 +10,7 @@ import { PortfolioRegisterPage } from './portfolio-register/portfolio-register';
   selector: 'page-portfolio',
   templateUrl: 'portfolio.html',
 })
-export class PortfolioPage {
+export class PortfolioPage implements OnInit{
 
   /***
    * Mocks
@@ -22,15 +22,19 @@ export class PortfolioPage {
   ];
 
 
-  portfolioItens : Observable<any>
-  
+  portfolioItens
+
   constructor(public navCtrl: NavController, 
               private auth : AuthProvider, 
               private persistece : PersistenceProvider) {
   }
 
-  getPortfolio(){
-    this.portfolioItens = this.persistece.getAll('portfolio')
+  ngOnInit(){
+    this.getPortfolio()
+  }
+
+  async getPortfolio(){
+    this.portfolioItens = await this.persistece.getAll('portfolio')
   }
 
   refresh(){

@@ -4,6 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
 import { DetailProposalPage } from './detail-proposal/detail-proposal';
 import { Observable } from 'rxjs';
+import { Proposal } from '../../models/proposal';
 
 
 
@@ -13,11 +14,11 @@ import { Observable } from 'rxjs';
 })
 export class ProposalPage implements OnInit {
 
-  proposals =  [
-    {type : 'Logotipo', title : 'Adriano Marques', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
+  // proposals =  [
+  //   {type : 'Logotipo', title : 'Adriano Marques', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
     
-    {type : 'Branding', title : 'Vinicius Ramos', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
-  ]
+  //   {type : 'Branding', title : 'Vinicius Ramos', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
+  // ]
 
   proposalList
 
@@ -28,23 +29,22 @@ export class ProposalPage implements OnInit {
   
   }
 
-  ngOnInit(){
+  async ngOnInit(){
     if(this.auth.currentUser['type']){
-      console.log(this.persistence.getAll('proposal').subscribe(
-        res=>{
-          console.log('entrei')
-        }
-      ))
-      
-    // }else{
-    //   this.proposalList = this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
-    //   console.log(this.proposalList)
-    // }
+      this.proposalList = await this.persistence.getAll('proposal')
+     
+    }else{
+      this.proposalList = await this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
+  
     }
   }
-
+  
+  
   goProposal(item){
-      this.navCtrl.push(DetailProposalPage, item);
+    
+      // this.navCtrl.push(DetailProposalPage, { data : item , messages : item.messages});
+
+      this.navCtrl.push(DetailProposalPage, { key : item.key });
   }
 
  
