@@ -14,10 +14,10 @@
             <ion-col>
               
             <form class="form-group">
-                <ion-input maxlength="20" type="text" placeholder="Título" [(ngModel)]="item.title" name="title"></ion-input>
+                <ion-input maxlength="20" type="text" placeholder="Título" [(ngModel)]="newProposal.title" name="title"></ion-input>
               </form>
                 <div>
-                  <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="item.description" name="description"></ion-textarea>
+                  <ion-textarea maxlength="200" type="text" placeholder="Descrição" [(ngModel)]="newProposal.description" name="description"></ion-textarea>
                 </div>
                 <p class="sm-tx metadata">Anexar Imagem</p>
                 <button (click)="addImage()" class="img-btn" ion-button icon-end>

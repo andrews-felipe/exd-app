@@ -3,6 +3,7 @@ import { NavController} from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
 import { DetailProposalPage } from './detail-proposal/detail-proposal';
+import { Observable } from 'rxjs';
 
 
 
@@ -10,7 +11,7 @@ import { DetailProposalPage } from './detail-proposal/detail-proposal';
   selector: 'page-proposal',
   templateUrl: 'proposal.html',
 })
-export class ProposalPage {
+export class ProposalPage implements OnInit {
 
   proposals =  [
     {type : 'Logotipo', title : 'Adriano Marques', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
@@ -29,9 +30,16 @@ export class ProposalPage {
 
   ngOnInit(){
     if(this.auth.currentUser['type']){
-      this.proposalList = this.persistence.getAll('proposal')
-    }else{
-      this.proposalList = this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
+      console.log(this.persistence.getAll('proposal').subscribe(
+        res=>{
+          console.log('entrei')
+        }
+      ))
+      
+    // }else{
+    //   this.proposalList = this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
+    //   console.log(this.proposalList)
+    // }
     }
   }
 

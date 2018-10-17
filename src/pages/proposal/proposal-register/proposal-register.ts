@@ -1,16 +1,14 @@
 import { PersistenceProvider } from './../../../providers/persistence/persistence';
 import { Proposal } from './../../../models/proposal';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { GalleryProvider } from '../../../providers/gallery/gallery';
 import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../../providers/auth/auth';
-//import { NavController, NavParams } from 'ionic-angular';
 
 
 /**
- * @author Mateus Lourenco
+ * @author Felipe Andrew
  */
 
 @Component({
@@ -33,12 +31,14 @@ export class ProposalRegisterPage {
     /***
      * Receiving type of service.
      */
-    this.newProposal.type = this.navParams.data
+    this.newProposal.type = this.navParams.get('data')
 
     /**
      * Get the uid of current user
      */
     this.newProposal.uid = this.auth.currentUser['uid'] 
+
+    console.log(this.newProposal)
   }
 
   addImage(){
@@ -49,6 +49,7 @@ export class ProposalRegisterPage {
    * Method for sending a proposal
    */
   async sendProposal(){
+    console.log(this.newProposal)
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
     if(this.imgCurrent){
       this.newProposal.imageUrl = await this.persistence.upload(this.imgCurrent)
@@ -59,10 +60,10 @@ export class ProposalRegisterPage {
           toast.setMessage('Proposta Enviada, Acompanhe no Menu "Propostas"');
           toast.present();
       })
-      }else{
-        toast.setMessage('Todos os campos devem ser preenchidos');
-        toast.present();
-      }
+    }else{
+      toast.setMessage('Todos os campos devem ser preenchidos');
+      toast.present();
+    }
   }
 
   

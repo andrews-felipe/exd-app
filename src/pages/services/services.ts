@@ -34,7 +34,7 @@ export class ServicesPage {
    * Method for go to page "Create Proposal" sending choised service.
    */
   goProposal(currentService){
-      this.navCtrl.push(ProposalRegisterPage, currentService.type)
+      this.navCtrl.push(ProposalRegisterPage, {data : currentService.title})
   }
 
   create(){
