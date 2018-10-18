@@ -42,7 +42,7 @@ export class ProposalRegisterPage {
   }
 
   addImage(){
-    this.imgCurrent = this.img.openGallery();
+    this.imgCurrent = this.img.getPicture();
   }
 
   /***
