@@ -18,12 +18,18 @@ export class PortfolioRegisterPage {
   constructor(public navCtrl: NavController, 
               private img : GalleryProvider, 
               private persistence : PersistenceProvider,
-              private toast : ToastController
+              private toast : ToastController,
+              private camera : GalleryProvider, 
               ) {
   }
 
-  addImage(){
-    this.imgCurrent = this.img.openGallery();
+  async addImage(){
+    this.camera.getPicture().then((imageData) => {
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.imgCurrent = base64Image;            
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   async sendItem(){

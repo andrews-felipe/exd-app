@@ -21,12 +21,17 @@ export class ServiceRegisterPage {
               private toastCtrl: ToastController,
               private persistence: PersistenceProvider,
               private navParams : NavParams,
-              private img : GalleryProvider, 
+              private camera : GalleryProvider, 
             ) {}
 
 
-    addImage(){
-      this.imgCurrent = this.img.openGallery();
+    async addImage(){
+      this.camera.getPicture().then((imageData) => {
+        let base64Image = 'data:image/jpeg;base64,' + imageData;
+        this.imgCurrent = base64Image;            
+      }, (err) => {
+        console.log(err);
+      });
     }
   /**
    * Method for validate and save service in database
@@ -50,4 +55,12 @@ export class ServiceRegisterPage {
       toast.present()
     }
   }
+
+  anexarArquivo() {
+   
+  }
+  
+
+
+
 }
