@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
-import { PortifolioItem } from '../../../models/portifolio';
+import { PortfolioItem } from '../../../models/portfolio';
 import { GalleryProvider } from '../../../providers/gallery/gallery';
 import { PersistenceProvider } from '../../../providers/persistence/persistence';
 
@@ -12,7 +12,7 @@ import { PersistenceProvider } from '../../../providers/persistence/persistence'
 })
 export class PortfolioRegisterPage {  
 
-  item : PortifolioItem = new PortifolioItem()
+  item : PortfolioItem = new PortfolioItem()
   imgCurrent
 
   constructor(public navCtrl: NavController, 

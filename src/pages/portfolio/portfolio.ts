@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController} from 'ionic-angular';
-import { PortifolioItem } from '../../models/portifolio';
+import { PortfolioItem } from '../../models/portfolio';
 import { AuthProvider } from '../../providers/auth/auth';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ export class PortfolioPage implements OnInit{
   /***
    * Mocks
    */
-    portfolio : Array<PortifolioItem> = [
+    portfolio : Array<PortfolioItem> = [
     {key : '', title : 'Consciência Cristã Branding', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.', imageUrl : '../../assets/imgs/imagem_portfolio.jpg'},
     
     {key : '', title : 'Consciência Cristã Branding', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.', imageUrl : 'http://2.bp.blogspot.com/-1gRHjJ3zVBs/WjFi8iHgDnI/AAAAAAAAEJI/QV_-dE3QuKkk1NtUasuv7jdunnysP-r_ACK4BGAYYCw/s1600/ifood-732540.png'},
