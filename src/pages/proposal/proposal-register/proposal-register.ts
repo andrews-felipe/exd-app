@@ -57,7 +57,7 @@ export class ProposalRegisterPage {
     if(this.newProposal.title && this.newProposal.description){
         this.persistence.post('proposal', this.newProposal)
         .then(()=>{
-          toast.setMessage('Proposta Enviada, Acompanhe no Menu "Propostas"');
+          toast.setMessage('Proposta Enviada! Acompanhe no Menu "Propostas"');
           toast.present();
       })
     }else{
