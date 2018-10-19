@@ -48,11 +48,11 @@ export class SignupPage {
     }else{
         this.authService.singUpUser(this.user)
             .then((user: any) => {
-                user.sendEmailVerification();
                 toast.setMessage('Usuário criado com sucesso.');
                 toast.present();
-
                 this.navCtrl.setRoot(LoginPage);
+                user.sendEmailVerification();
+
             })
             .catch((error: any) => {
 
