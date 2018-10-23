@@ -50,8 +50,8 @@ export class SignupPage {
             .then((user: any) => {
                 toast.setMessage('Usuário criado com sucesso.');
                 toast.present();
-                this.navCtrl.setRoot(LoginPage);
                 user.sendEmailVerification();
+                this.navCtrl.setRoot(LoginPage);
 
             })
             .catch((error: any) => {
