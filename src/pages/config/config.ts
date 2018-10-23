@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PasswordResetPage } from '../password-reset/password-reset';
@@ -9,6 +10,7 @@ import { SignupPage } from '../signup/signup';
   templateUrl: 'config.html',
 })
 export class ConfigPage {
+  currentUser : User = new User();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -21,4 +23,6 @@ export class ConfigPage {
     this.navCtrl.push(SignupPage)
   }
 
+  removeAccount(){
+  }
 }
