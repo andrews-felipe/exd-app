@@ -12,6 +12,8 @@ import { Proposal } from '../../models/proposal';
 })
 export class ProposalPage {
 
+  Proposal = new Proposal;
+
   proposals =  [
     {key : '', title : 'Adriano Marques', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
     
@@ -34,6 +36,13 @@ export class ProposalPage {
     }
   }
 
+  proposalValidation(){
+    if(this.Proposal.title.length <= 20 && this.Proposal.desc.length <= 200){
+      
+    }
+  }
+
+  
   getProposals(){
     
   }
