@@ -35,16 +35,17 @@ export class SignupPage {
   /**
    *  Create user in database of system
    */
-  signUp() {
+    signUp() {
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
     if(this.authService.currentUser){
-        console.log(this.user)
         this.persistence.put('user', this.user).then(
            ()=>{
             toast.setMessage('Alteração feita com sucesso!');
+            this.persistence.getByUid('user',this.authService.currentUser['uid']);
             toast.present();
            }
        )
+
     }else{
         this.authService.singUpUser(this.user)
             .then((user: any) => {
