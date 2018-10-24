@@ -41,27 +41,29 @@ export class DetailProposalPage implements OnInit {
   async getProposal(){
     this.currentProposal =  await this.persistence.getById('proposal', this.key)
     this.messages = this.currentProposal.messages
+    this.message = new Message()
   }
   /**
    * Method for send message in proposal
    */
   async sendMessage(){
-    let toast = this.toastCtrl.create({duration : 3000, position : 'bottom'})
-    this.message.date = new Date().toDateString()
-    let auxObject = this.currentProposal
-    auxObject.messages.push(this.message)
-    console.log(this.auxObject)
-    this.persistence.put('proposal', auxObject).then(
-      ()=>{
-        this.getProposal()
-        this.message = new Message()
-      }
-    ).catch(
-      ()=>{
-        toast.setMessage('Algum erro inesperado ocorreu!')
-        toast.present()
-      }
-    )
+    if(this.message !== ''){
+        let toast = this.toastCtrl.create({duration : 3000, position : 'bottom'})
+        this.message.date = new Date().toDateString()
+        let auxObject = this.currentProposal
+        auxObject.messages.push(this.message)
+        console.log(this.auxObject)
+        this.persistence.put('proposal', auxObject).then(
+          ()=>{
+            this.getProposal()
+          }
+        ).catch(
+          ()=>{
+            toast.setMessage('Algum erro inesperado ocorreu!')
+            toast.present()
+          }
+        )
+    }
   }
 
   
