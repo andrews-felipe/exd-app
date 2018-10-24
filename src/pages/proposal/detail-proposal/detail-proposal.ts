@@ -42,6 +42,7 @@ export class DetailProposalPage implements OnInit {
     this.currentProposal =  await this.persistence.getById('proposal', this.key)
     this.messages = this.currentProposal.messages
     this.message = new Message()
+    window.scrollTo(0,document.body.scrollHeight);
   }
   /**
    * Method for send message in proposal
