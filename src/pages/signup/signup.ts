@@ -1,11 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
-import { NgForm } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
-
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-signup',
@@ -14,6 +13,7 @@ import { PersistenceProvider } from '../../providers/persistence/persistence';
 export class SignupPage {
 
   user: User = new User();
+  loginPage: LoginPage = new LoginPage(this.navCtrl, this.toastCtrl, this.authService);
 
   constructor(public navCtrl: NavController, 
             private toastCtrl: ToastController, 
@@ -37,23 +37,24 @@ export class SignupPage {
    */
     signUp() {
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+    
     if(this.authService.currentUser){
         this.persistence.put('user', this.user).then(
            ()=>{
             toast.setMessage('Alteração feita com sucesso!');
             this.persistence.getByUid('user',this.authService.currentUser['uid']);
             toast.present();
-           }
-       )
-
-    }else{
+            this.navCtrl.push(HomePage);            
+        }
+        )
+    }
+    else{
         this.authService.singUpUser(this.user)
             .then((user: any) => {
                 toast.setMessage('Usuário criado com sucesso.');
                 toast.present();
-                user.sendEmailVerification();
                 this.navCtrl.setRoot(LoginPage);
-
+                user.sendEmailVerification();
             })
             .catch((error: any) => {
 
