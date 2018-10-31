@@ -1,3 +1,5 @@
+import { HomePage } from './../home/home';
+import { LoginPage } from './../login/login';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
@@ -10,6 +12,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class PasswordResetPage {
 
   userEmail: string = '';
+    loginPage: LoginPage = new LoginPage(this.navCtrl, this.toastCtrl, this.authService);
  
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, private authService: AuthProvider) {
@@ -29,9 +32,9 @@ export class PasswordResetPage {
 
                   toast.setMessage('Solicitação foi enviada para o seu e-mail.');
                   toast.present();
-
                   this.navCtrl.pop();
-              })
+                  this.navCtrl.push(HomePage);            
+                })
               .catch((error: any) => {
 
                   if(error.code == 'auth/invalid-email') {
