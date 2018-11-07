@@ -33,7 +33,7 @@ export class PasswordResetPage {
                   toast.setMessage('Solicitação foi enviada para o seu e-mail.');
                   toast.present();
                   this.navCtrl.pop();
-                  this.navCtrl.push(HomePage);            
+                  this.navCtrl.push(LoginPage);            
                 })
               .catch((error: any) => {
 

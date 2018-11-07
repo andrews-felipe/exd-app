@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
+import { NavController, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { PasswordResetPage } from '../password-reset/password-reset';
 import { SignupPage } from '../signup/signup';
@@ -27,8 +26,6 @@ export class LoginPage {
      */
 
     constructor (public navCtrl: NavController, private  toastCtrl: ToastController, private authService: AuthProvider) {
-        this.user.email = 'ferulip@gmail.com'
-        this.user.password = 'admadm'
     }
     
 
