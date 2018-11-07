@@ -37,23 +37,19 @@ export class ProposalRegisterPage {
      * Get the uid of current user
      */
     this.newProposal.uid = this.auth.currentUser['uid'] 
-
-    console.log(this.newProposal)
   }
 
-  addImage(){
-    this.imgCurrent = this.img.getPicture();
+  async addImage(){
+    this.imgCurrent = await this.img.getPicture();
+    this.newProposal.imgId = this.persistence.upload(this.imgCurrent)
   }
 
   /***
    * Method for sending a proposal
    */
   async sendProposal(){
-    console.log(this.newProposal)
+    this.newProposal.imageUrl = await this.persistence.download(this.newProposal.imgId)
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
-    if(this.imgCurrent){
-      this.newProposal.imageUrl = await this.persistence.upload(this.imgCurrent)
-    }
     if(this.newProposal.title && this.newProposal.description){
         this.persistence.post('proposal', this.newProposal)
         .then(()=>{
@@ -63,8 +59,8 @@ export class ProposalRegisterPage {
     }else{
       toast.setMessage('Todos os campos devem ser preenchidos');
       toast.present();
-    }
   }
+}
 
   
 

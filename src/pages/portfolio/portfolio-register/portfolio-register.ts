@@ -22,20 +22,16 @@ export class PortfolioRegisterPage {
               private camera : GalleryProvider, 
               ) {
   }
-
+  
   async addImage(){
-    this.camera.getPicture().then((imageData) => {
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.imgCurrent = base64Image;            
-    }, (err) => {
-      console.log(err);
-    });
+    this.imgCurrent = await this.img.getPicture();
+    this.item.imgId = this.persistence.upload(this.imgCurrent)
   }
 
   async sendItem(){
-    let alert = this.toast.create({duration : 3000, position : 'bottom'})
+    this.item.imageUrl = await this.persistence.download(this.item.imgId)
+    let alert = this.toast.create({ duration: 3000, position: 'bottom'});
     if(this.imgCurrent){
-      this.item.imageUrl = await this.persistence.upload(this.imgCurrent)
       if(this.item.imageUrl && this.item.description && this.item.title){
           this.persistence.post('portfolio', this.item).then(
             ()=>{

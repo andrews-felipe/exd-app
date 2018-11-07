@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
@@ -15,6 +16,8 @@ export class SignupPage {
     loginPage: LoginPage = new LoginPage(this.navCtrl, this.toastCtrl, this.authService);
     disabled: boolean = true;
 
+    pageTitle : string
+
     constructor(public navCtrl: NavController,
         private toastCtrl: ToastController,
         private authService: AuthProvider,
@@ -27,8 +30,10 @@ export class SignupPage {
     ngOnInit() {
         if (this.authService.currentUser) {
             this.user = this.authService.currentUser as any
+            this.pageTitle = 'Alterar Dados'
         } else {
             this.user.type = false;
+            this.pageTitle = 'Cadastro'
         }
 
     }
@@ -48,16 +53,18 @@ export class SignupPage {
                         toast.setMessage('Alteração feita com sucesso!');
                         this.persistence.getByUid('user', this.authService.currentUser['uid']);
                         toast.present();
-                        this.loginPage.login();
+                        this.authService.logout()
+                        this.navCtrl.push(LoginPage);
+                        
                     }
                 )
             }
             else {
                 this.authService.singUpUser(this.user)
                     .then((user: any) => {
+                        user.sendEmailVerification();
                         toast.setMessage('Usuário criado com sucesso.');
                         toast.present();
-                        user.sendEmailVerification();
                         this.navCtrl.setRoot(LoginPage);
                     })
                     .catch((error: any) => {

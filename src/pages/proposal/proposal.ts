@@ -14,12 +14,6 @@ import { Proposal } from '../../models/proposal';
 })
 export class ProposalPage implements OnInit {
 
-  // proposals =  [
-  //   {type : 'Logotipo', title : 'Adriano Marques', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
-    
-  //   {type : 'Branding', title : 'Vinicius Ramos', description : 'Gestão de branding do evento da consciência cristã,um evento sediado em Campina Grande comgrande estrutura.'},
-  // ]
-
   proposalList
 
   constructor(public navCtrl: NavController, 
@@ -41,9 +35,6 @@ export class ProposalPage implements OnInit {
   
   
   goProposal(item){
-    
-      // this.navCtrl.push(DetailProposalPage, { data : item , messages : item.messages});
-
       this.navCtrl.push(DetailProposalPage, { key : item.key });
   }
 

@@ -3,4 +3,5 @@ export class PortfolioItem{
     title: string;
     description:string;
     imageUrl: any;
+    imgId : string;
 }

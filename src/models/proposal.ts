@@ -5,6 +5,7 @@ export class Proposal {
     uid : string;
     type : string;
     imageUrl : any
+    imgId : string;
     title: string;
     description: string;
     date: Date = new Date();

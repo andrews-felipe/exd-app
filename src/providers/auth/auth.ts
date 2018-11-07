@@ -80,4 +80,9 @@ export class AuthProvider {
   resetPassword(email: string) {
     return this.fireAuth.auth.sendPasswordResetEmail(email);
   }
+
+  logout(){
+    this.currentUser = new Observable<any>()
+    this.fireAuth.auth.signOut()
+  }
 }

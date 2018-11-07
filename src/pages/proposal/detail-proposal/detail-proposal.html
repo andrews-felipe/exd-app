@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row>
       <div class="box-message">
-        <ion-col col-12 center>
+        <!-- <ion-col col-12 center>
           <div class="info">
             <p class="mt-item text-red text-center">Proposta de : {{currentProposal.author}}</p>
             <br>
@@ -19,9 +19,16 @@
             <p class="sm-tx metadata">{{currentProposal.date}}</p>
           </div>
           <hr>
-        </ion-col>
-
-        <div class="content-message" *ngFor="let message of messages">
+        </ion-col> -->
+        <ion-content #content padding>
+        <ion-list no-lines>
+          <ion-item *ngFor="let msg of messages" >
+            <!-- <chat-bubble [message]="msg"></chat-bubble> -->
+            <p>{{msg.body}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+        <!-- <div #target class="content-message" *ngFor="let message of messages">
 
           <div class="info">
             <p class="title-item text-blue">{{message.author}}</p>
@@ -30,13 +37,13 @@
           </div>
 
           <hr>
-        </div>
+        </div> -->
       </div>
       <ion-col col-12>
         <div class="message-area">
           <ion-textarea maxlength="200" type="text" placeholder="Menssagem" onfocus="this.value=''" onblur="this.value=''" [(ngModel)]="message.body"
             name="description"></ion-textarea>
-          <button (click)="sendMessage()" class="item-blue btn-view">Enviar</button>
+          <button (click)="scrollElement()" class="item-blue btn-view">Enviar</button>
         </div>
       </ion-col>
     </ion-row>

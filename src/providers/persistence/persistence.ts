@@ -14,6 +14,11 @@ export class PersistenceProvider {
   currentItem
 
   constructor(private firemodule: AngularFireDatabase, private storage: AngularFireStorage) { }
+
+  getKey() {
+    return this.firemodule.createPushId();
+  }
+
   /**
    * Method for getAll itens for ( Endpoint )
    * @param endpoint 
@@ -94,17 +99,17 @@ export class PersistenceProvider {
    * Method for upload img and return link
    * @param imageFile 
    */
-  async upload(base64Image) {
+  upload(base64Image) {
     
-    let imgKey = `imagem${Math.floor(Math.random() * 1000000)}`;
-    const uploadTask = await this.storage.ref(`imagens/${imgKey}`)
-      .putString(base64Image, 'data_url');
+    let imgKey = `imagem${this.getKey()}`;
+    const uploadTask = this.storage.ref(`imagens/${imgKey}`)
+      .putString(base64Image, 'data_url').then( url => url.downloadURL );
 
-    return uploadTask.downloadURL;
+    return imgKey
     
   }
 
-  download(imgKey): Observable<any> {
+  download(imgKey){
     const imgRef = this.storage.ref(`imagens/${imgKey}`);
     return imgRef.getDownloadURL();
   }

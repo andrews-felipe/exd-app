@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController, NavParams, ToastController, Content } from 'ionic-angular';
 import { Proposal } from '../../../models/proposal';
 import { Message } from '../../../models/message';
 import { PersistenceProvider } from '../../../providers/persistence/persistence';
@@ -12,6 +12,8 @@ import { AuthProvider } from '../../../providers/auth/auth';
   templateUrl: 'detail-proposal.html',
 })
 export class DetailProposalPage implements OnInit {
+
+  @ViewChild('content') content:any;
 
   message: Message = new Message()
   messages
@@ -29,6 +31,13 @@ export class DetailProposalPage implements OnInit {
     this.key = navParams.get('key')
     this.message.author = this.auth.currentUser['name']
   }
+
+
+  ionViewDidEnter(){
+    console.log('aqui')
+    this.content.scrollToBottom(100);//300ms animation speed
+  }
+
 
   async ngOnInit() {
     this.currentProposal = await this.persistence.getById('proposal', this.key)
@@ -48,13 +57,11 @@ export class DetailProposalPage implements OnInit {
    */
   async sendMessage() {
     
-    if(this.message.body !== undefined){
-
+    if(this.message.body !== undefined && this.message.body !== ''){
           let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
           this.message.date = new Date().toDateString()
           let auxObject = this.currentProposal
           auxObject.messages.push(this.message)
-          console.log('foi')
           this.persistence.put('proposal', auxObject).then(
             () => {
               this.getProposal()
