@@ -4,7 +4,6 @@ import { User } from '../../models/user';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 import { PersistenceProvider } from '../../providers/persistence/persistence';
-import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-signup',
@@ -14,6 +13,7 @@ export class SignupPage {
 
   user: User = new User();
   loginPage: LoginPage = new LoginPage(this.navCtrl, this.toastCtrl, this.authService);
+  disabled: boolean = true;
 
   constructor(public navCtrl: NavController, 
             private toastCtrl: ToastController, 
@@ -36,45 +36,49 @@ export class SignupPage {
    *  Create user in database of system
    */
     signUp() {
-    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
-    
-    if(this.authService.currentUser){
-        this.persistence.put('user', this.user).then(
-           ()=>{
-            toast.setMessage('Alteração feita com sucesso!');
-            this.persistence.getByUid('user',this.authService.currentUser['uid']);
-            toast.present();
-            this.navCtrl.push(HomePage);            
-        }
-        )
-    }
-    else{
-        this.authService.singUpUser(this.user)
-            .then((user: any) => {
-                toast.setMessage('Usuário criado com sucesso.');
-                toast.present();
-                this.navCtrl.setRoot(LoginPage);
-                user.sendEmailVerification();
-            })
-            .catch((error: any) => {
+        if(this.disabled){
 
-                if(error.code == 'auth/email-already-in-use') {
-                    toast.setMessage('O e-mail digitado já está em uso.');
+            this.disabled = false;
+
+            let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
+            
+            if(this.authService.currentUser){
+                this.persistence.put('user', this.user).then(
+                ()=>{
+                    toast.setMessage('Alteração feita com sucesso!');
+                    this.persistence.getByUid('user',this.authService.currentUser['uid']);
+                    toast.present();
+                    this.loginPage.login();            
                 }
-                else if(error.code == 'auth/invalid-email') {
-                    toast.setMessage('O e-mail digitado não é valido.');
-                }
-                else if(error.code == 'auth/operation-not-allowed') {
-                    toast.setMessage('Não está habilitado criar usuários.');
-                }
-                else if(error.code == 'auth/weak-password') {
-                    toast.setMessage('A senha digitada é muito fraca.');
-                }
-                toast.present();
-            });
+                )
+            }
+            else{
+                this.authService.singUpUser(this.user)
+                .then((user: any) => {
+                    toast.setMessage('Usuário criado com sucesso.');
+                    toast.present();
+                    user.sendEmailVerification();
+                    this.navCtrl.setRoot(LoginPage);
+                })
+                .catch((error: any) => {
+
+                    if(error.code == 'auth/email-already-in-use') {
+                        toast.setMessage('O e-mail digitado já está em uso.');
+                    }
+                    else if(error.code == 'auth/invalid-email') {
+                        toast.setMessage('O e-mail digitado não é valido.');
+                    }
+                    else if(error.code == 'auth/operation-not-allowed') {
+                        toast.setMessage('Não está habilitado criar usuários.');
+                    }
+                    else if(error.code == 'auth/weak-password') {
+                        toast.setMessage('A senha digitada é muito fraca.');
+                    }
+                    toast.present();
+                });
+            }
         }
     }
-    
   }
 
 
