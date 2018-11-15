@@ -78,31 +78,34 @@ export class DetailProposalPage implements OnInit, AfterViewChecked {
     this.messages = this.currentProposal.messages
     this.message = new Message()
     this.message.author = this.auth.currentUser['name']
-    
   }
   /**
    * Method for send message in proposal
    */
   async sendMessage() {
-    if(this.message.body != ''){
-          let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
-          this.message.date = new Date().toDateString()
-          let auxObject = this.currentProposal
-          auxObject.messages.push(this.message)
-          this.scrollToBottom();
     
-          this.persistence.put('proposal', auxObject).then(
-            () => {
-              this.getProposal()
-            }
-          ).catch(
-            () => {
-              toast.setMessage('Algum erro inesperado ocorreu!')
-              toast.present()
-            }
-          )
-     }
-  }
+    if(this.message.body !== undefined && this.message.body !==''){
+      if(this.message.body.replace(/\s/g, '').length){
+        let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
+        this.message.date = new Date().toDateString()
+        let auxObject = this.currentProposal
+        auxObject.messages.push(this.message)
+        this.scrollToBottom();
+
+        this.persistence.put('proposal', auxObject).then(
+          () => {
+            this.getProposal()
+          }
+        ).catch(
+          () => {
+            toast.setMessage('Algum erro inesperado ocorreu!')
+            toast.present()
+          }
+        )
+      }
+
+  }    
+}
 
 
 
