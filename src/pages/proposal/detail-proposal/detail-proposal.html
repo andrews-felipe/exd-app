@@ -17,7 +17,10 @@
       [class.right]=" msg.author === message.author"
       [class.left]="msg.author != message.author"
       >
-        <img class="user-img" src="https://picsum.photos/200/300" alt="" >
+        <img *ngIf="msg.author === message.author"
+        class="user-img" src="../../../assets/imgs/avatar1.png" alt="" >
+        <img *ngIf="msg.author != message.author"
+        class="user-img" src="../../../assets/imgs/avatar2.png" alt="" >
         <!-- <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner> -->
         <div class="msg-detail">
           <div class="msg-info">
