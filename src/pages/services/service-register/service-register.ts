@@ -55,9 +55,10 @@ export class ServiceRegisterPage {
         toast.setMessage('Todos os campos devem ser preenchidos');
         toast.present();
       }
-    } else {
+    } 
+    /*else {
       toast.setMessage('Você precisa inserir uma imagem')
       toast.present()
-    }
-  }
+    }*/
+  
 }
