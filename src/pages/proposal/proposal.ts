@@ -29,7 +29,6 @@ export class ProposalPage implements OnInit {
      
     }else{
       this.proposalList = await this.persistence.getByUid('proposal', this.auth.currentUser['uid'])
-  
     }
   }
   

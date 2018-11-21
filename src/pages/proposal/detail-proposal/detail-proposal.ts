@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { NavController, NavParams, ToastController, Content } from 'ionic-angular';
 import { Message } from '../../../models/message';
 import { PersistenceProvider } from '../../../providers/persistence/persistence';
@@ -9,7 +9,7 @@ import { AuthProvider } from '../../../providers/auth/auth';
   selector: 'page-detail-proposal',
   templateUrl: 'detail-proposal.html',
 })
-export class DetailProposalPage implements OnInit, AfterViewChecked {
+export class DetailProposalPage implements OnInit, AfterViewInit {
   
 
   @ViewChild(Content) content: Content;
@@ -34,7 +34,6 @@ export class DetailProposalPage implements OnInit, AfterViewChecked {
   }
 
   async ngOnInit() {
-    
     this.currentProposal = await this.persistence.getById('proposal', this.key)
     if(this.currentProposal.messages){
       this.messages = await this.currentProposal.messages
@@ -46,13 +45,12 @@ export class DetailProposalPage implements OnInit, AfterViewChecked {
     
   }
 
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     if(this.content){
       this.content.resize();
       this.scrollToBottom()
     }
   }
-  
   
   scrollToBottom() {
     setTimeout(() => {

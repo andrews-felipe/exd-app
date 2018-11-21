@@ -25,11 +25,11 @@ export class PortfolioRegisterPage {
   
   async addImage(){
     this.imgCurrent = await this.img.getPicture();
-    this.item.imgId = this.persistence.upload(this.imgCurrent)
+    this.item.imgId = await this.persistence.upload(this.imgCurrent)
+    this.item.imageUrl = await this.persistence.download(this.item.imgId)
   }
 
-  async sendItem(){
-    this.item.imageUrl = await this.persistence.download(this.item.imgId)
+  sendItem(){
     let alert = this.toast.create({ duration: 3000, position: 'bottom'});
     if(this.imgCurrent){
       if(this.item.imageUrl && this.item.description && this.item.title){

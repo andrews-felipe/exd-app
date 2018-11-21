@@ -39,7 +39,10 @@ export class ServiceRegisterPage {
    */
   async registerService() {
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
-    if (this.imgCurrent) {
+    
+    const thread = new Promise((resolve, reject)=>{
+      this.persistence.upload(this.imgCurrent)
+    })
       this.newService.imageUrl = await this.persistence.upload(this.imgCurrent)
       if (this.newService.title && this.newService.description && this.newService.imageUrl) {
         this.persistence.post('services', this.newService)

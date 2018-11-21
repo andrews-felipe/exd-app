@@ -103,7 +103,10 @@ export class PersistenceProvider {
     
     let imgKey = `imagem${this.getKey()}`;
     const uploadTask = this.storage.ref(`imagens/${imgKey}`)
-      .putString(base64Image, 'data_url').then( url => url.downloadURL );
+      .putString(base64Image, 'data_url').then( 
+        url => 
+        url.downloadURL 
+    );
 
     return imgKey
     
