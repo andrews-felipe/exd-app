@@ -16,6 +16,7 @@
         <img (click)="goProposal(item)" [src]="item.imageUrl" alt="item.title" />
 
         <ion-row *ngIf="this.auth.currentUser.type" class="options">
+
           <button class="item-red" ion-button icon-end>
             <ion-icon name="ios-trash-outline"></ion-icon>
           </button>
@@ -24,12 +25,15 @@
             <ion-icon name="ios-create-outline"></ion-icon>
           </button>
         </ion-row>
-        <ion-icon *ngIf="this.auth.currentUser.type" class="add-icon" (click)="create()" ios="ios-add-circle" md="md-add-circle">
-        </ion-icon>
 
       </ion-col>
     </ion-row>
   </ion-grid>
+    <ion-icon *ngIf="this.auth.currentUser.type" 
+          class="add-icon" 
+          (click)="create()" 
+          ios="ios-add-circle" md="md-add-circle" center>
+    </ion-icon>
 </ion-content>
 
 <ion-footer>
