@@ -41,8 +41,7 @@ export class ProposalRegisterPage {
 
   async addImage(){
     this.imgCurrent = await this.img.getPicture();
-    this.newProposal.imgId = await this.persistence.upload(this.imgCurrent)
-    this.newProposal.imageUrl = await this.persistence.download(this.newProposal.imgId)
+    this.newProposal.imageUrl = await this.persistence.upload(this.imgCurrent)
   }
 
   /***
