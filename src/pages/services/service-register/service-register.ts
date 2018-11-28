@@ -44,7 +44,8 @@ export class ServiceRegisterPage {
       this.persistence.upload(this.imgCurrent)
     })
       this.newService.imageUrl = await this.persistence.upload(this.imgCurrent)
-      if (this.newService.title && this.newService.description && this.newService.imageUrl) {
+
+      if (this.newService.title && this.newService.imageUrl) {
         this.persistence.post('services', this.newService)
           .then(() => {
             toast.setMessage('Serviço Cadastrado com sucesso!');
@@ -56,9 +57,5 @@ export class ServiceRegisterPage {
         toast.present();
       }
     } 
-    /*else {
-      toast.setMessage('Você precisa inserir uma imagem')
-      toast.present()
-    }*/
   
 }

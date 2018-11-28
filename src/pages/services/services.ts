@@ -15,16 +15,8 @@ import { ProposalRegisterPage } from '../proposal/proposal-register/proposal-reg
 export class ServicesPage implements OnInit {
   
   servicesList
-
-  // serviceList : Array<Service> = [
-  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
-  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
-  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Consultoria-em-Projetos-Ambiental.jpg'},
-  //   {key : '', title : 'Logitipo', description : 'basics', imageUrl : 'http://www.ambientalbrazil.com.br/wp-content/uploads/img-Otimizacao-de-Sistemas.jpg'},
-  // ];
-  
   constructor(private navCtrl: NavController, private persistence: PersistenceProvider, private auth : AuthProvider){
-      
+      this.ngOnInit()
   }
   
   async ngOnInit(){
