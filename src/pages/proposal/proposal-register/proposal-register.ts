@@ -41,13 +41,16 @@ export class ProposalRegisterPage {
 
   async addImage(){
     this.imgCurrent = await this.img.getPicture();
-    this.newProposal.imageUrl = await this.persistence.upload(this.imgCurrent)
+    let image = new Image(100, 100)
+    this.newProposal.imageUrl = await this.persistence.upload(image)
+
   }
 
   /***
    * Method for sending a proposal
    */
   async sendProposal(){
+    console.log(this.newProposal.imageUrl)
     let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom'});
     if(this.newProposal.title && this.newProposal.description){
         this.persistence.post('proposal', this.newProposal)
